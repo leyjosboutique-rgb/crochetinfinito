@@ -337,6 +337,29 @@
   }
   footer p{opacity:.85;margin-top:6px;}
 
+  /* barra fija de compra — aparece al bajar, siempre a un toque del CTA */
+  .barra-fija{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;
+    max-width:640px;margin:0 auto;
+    background:#fff;border-top:1px solid var(--borde);
+    box-shadow:0 -6px 20px rgba(0,0,0,.12);
+    padding:10px 16px;display:flex;align-items:center;gap:12px;
+    transform:translateY(120%);transition:transform .3s ease;
+  }
+  .barra-fija.visible{transform:translateY(0);}
+  .barra-fija-info{display:flex;flex-direction:column;line-height:1.1;}
+  .barra-fija-precio{
+    font-family:'Baloo 2','Nunito',sans-serif;font-size:20px;font-weight:800;color:var(--fucsia);
+  }
+  .barra-fija-precio small{font-size:11px;}
+  .barra-fija-tachado{font-size:11px;color:var(--texto-suave);text-decoration:line-through;}
+  .barra-fija-btn{
+    flex:1;text-align:center;background:linear-gradient(90deg,#1fae6b,#2ecc7a);
+    color:#fff;font-family:'Baloo 2','Nunito',sans-serif;font-weight:800;font-size:14.5px;
+    padding:12px 10px;border-radius:14px;text-decoration:none;
+    box-shadow:0 6px 16px rgba(31,174,107,.4);
+  }
+
   .nota-tecnica{
     background:#fffbe6;border:1px solid #f0dd8a;border-radius:10px;
     padding:10px 14px;font-size:11.5px;color:#7a6300;margin:0 22px 18px;
@@ -429,33 +452,29 @@
       <a href="https://TU-CHECKOUT-AQUI.com" class="cta-btn" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
       <p class="cta-sub">Pago único · sin suscripción · acceso inmediato por correo</p>
 
-    </div>
+      <!-- GARANTIA — adentro de la misma tarjeta de oferta, no una caja separada con hueco en el medio -->
+      <div style="text-align:center;border-top:2px dashed rgba(107,63,160,.25);margin-top:22px;padding-top:22px;">
+        <div style="font-size:38px;line-height:1;">🛡️</div>
+        <div style="display:inline-block;background:var(--fucsia);color:#fff;font-size:12px;font-weight:800;padding:5px 16px;border-radius:20px;margin-top:8px;">RIESGO CERO</div>
+        <h3 style="font-size:20px;margin-top:10px;color:var(--morado);">Garantía de 60 días</h3>
+        <p style="font-weight:700;color:var(--fucsia);font-size:15px;">Y si aun así no era para vos, te devolvemos tu plata. Sin vueltas.</p>
+      </div>
 
-    <!-- GARANTIA — misma sección que la oferta, con espacio propio en vez de quedar
-         separadas por un hueco en blanco -->
-    <div class="garantia" style="text-align:center;padding:28px 20px;margin-top:48px;">
-      <div style="font-size:44px;line-height:1;">🛡️</div>
-      <div style="display:inline-block;background:var(--fucsia);color:#fff;font-size:12px;font-weight:800;padding:5px 16px;border-radius:20px;margin-top:8px;">RIESGO CERO</div>
-      <h3 style="font-size:22px;margin-top:10px;">Garantía de 60 días</h3>
-      <p class="destacado" style="font-size:16px;">Y si aun así no era para vos, te devolvemos tu plata. Sin vueltas.</p>
     </div>
   </section>
 
   <!-- BONOS -->
-  <section style="padding:0;background:var(--rosa-suave);">
+  <section style="padding:0 0 22px;background:var(--rosa-suave);">
     <img src="images05-bonos.webp" alt="20 respuestas a las excusas que ya usaste para no empezar — bonos incluidos gratis, sin letra chica: para que domines la técnica, para que nunca te quedes sin ideas, para todo lo que no es tejer pero también importa" style="width:100%;display:block;" loading="lazy" decoding="async">
+    <div style="padding:0 22px;">
+      <a href="https://TU-CHECKOUT-AQUI.com" class="cta-btn" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
+    </div>
   </section>
 
-  <!-- RECAP DE VALOR + CTA INTERMEDIO -->
-  <!-- Corresponde al banner "Mega Pack: todo lo que necesitas" + botón verde que sigue en el original real.
-       El recap va como imagen (banner de diseño), el botón va como HTML real — mismo patrón técnico
-       que el resto de la landing: persuasión en gráfico, acción transaccional en código. -->
+  <!-- RECAP DE VALOR (sin CTA acá, ya está el de arriba) -->
   <section style="text-align:center;">
     <img src="images06-stack.webp" alt="Mega Pack: lo que tenés después de hoy — Curso de Bolsos de Trapillo (el más pedido) y Curso de Crochet para Principiantes, más 20 recursos más para que nunca te falte una excusa resuelta" style="width:100%;border-radius:16px;display:block;" loading="lazy" decoding="async">
     <p class="cta-sub" style="margin:10px 0 18px;">+ 20 recursos más — para que nunca te falte una excusa resuelta.</p>
-
-    <!-- CTA intermedio: segundo cierre para quien ya decidió, antes de que baje a la tabla de precio detallada -->
-    <a href="https://TU-CHECKOUT-AQUI.com" class="cta-btn" target="_blank" rel="noopener">🛒 Quiero el Sistema Sin Vueltas Perdidas</a>
   </section>
 
   <!-- TESTIMONIOS / RESEÑAS — un solo carrusel, no dos secciones repitiendo lo mismo -->
@@ -522,6 +541,14 @@
     <a href="https://TU-CHECKOUT-AQUI.com" class="cta-btn" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
   </section>
 
+  <!-- Barra fija: aparece al hacer scroll, para que el botón de compra esté siempre a un toque de distancia -->
+  <div id="barra-fija" class="barra-fija">
+    <div class="barra-fija-info">
+      <span class="barra-fija-precio">$15 <small>USD</small></span>
+      <span class="barra-fija-tachado">$147</span>
+    </div>
+    <a href="https://TU-CHECKOUT-AQUI.com" class="barra-fija-btn" target="_blank" rel="noopener">🎁 Comprar ahora</a>
+  </div>
 
 </div>
 
@@ -616,6 +643,18 @@
     carrusel.addEventListener('touchstart', pausarYRetomar, {passive:true});
     carrusel.addEventListener('mousedown', pausarYRetomar);
     iniciarAvance();
+  }
+
+  // Barra fija de compra: aparece recién después de pasar el hero, no antes.
+  var barraFija = document.getElementById('barra-fija');
+  if(barraFija){
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 500){
+        barraFija.classList.add('visible');
+      } else {
+        barraFija.classList.remove('visible');
+      }
+    }, {passive:true});
   }
 </script>
 
