@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images01-hero.webp" fetchpriority="high">
 <style>
   :root{
     --rosa:#ff5c8a;
@@ -358,27 +359,27 @@
   -->
   <!-- HERO -->
   <div class="hero" style="padding:0;">
-    <img src="images01-hero.webp" alt="Terminá tu primera pieza de crochet sin perderte en el patrón — Sistema Sin Vueltas Perdidas, para cualquier nivel, patrones explicados en español sin traducir, cursos completos en video paso a paso, +10.000 patrones para inspirarte todos los días, Curso de Crochet para Principiantes, Curso de Bolsos de Trapillo (el más pedido)" style="width:100%;display:block;">
+    <img src="images01-hero.webp" alt="Terminá tu primera pieza de crochet sin perderte en el patrón — Sistema Sin Vueltas Perdidas, para cualquier nivel, patrones explicados en español sin traducir, cursos completos en video paso a paso, +10.000 patrones para inspirarte todos los días, Curso de Crochet para Principiantes, Curso de Bolsos de Trapillo (el más pedido)" style="width:100%;display:block;" loading="eager" fetchpriority="high" decoding="async">
   </div>
 
   <!-- DOLORES -->
   <section style="padding:0;">
-    <img src="images02-dolores.webp" alt="Este libro es para ti si: quieres tejer pero los tutoriales asumen que ya sabes, encontraste patrones gratis incompletos, perdiste tardes buscando el patrón correcto, no sabías qué tejer después, lo imaginaste de una forma y te quedó de otra, pensás que el crochet es difícil" style="width:100%;display:block;">
+    <img src="images02-dolores.webp" alt="Este libro es para ti si: quieres tejer pero los tutoriales asumen que ya sabes, encontraste patrones gratis incompletos, perdiste tardes buscando el patrón correcto, no sabías qué tejer después, lo imaginaste de una forma y te quedó de otra, pensás que el crochet es difícil" style="width:100%;display:block;" loading="lazy" decoding="async">
   </section>
 
   <!-- QUE INCLUYE -->
   <section style="padding:0;background:var(--rosa-suave);">
-    <img src="images03-categorias.webp" alt="Qué vas a poder tejer: ropa, llaveros, ropa para bebé, bolsos, mantas y bufandas, amigurumis — cada categoría con video, 20 recursos más, actualizaciones incluidas, acceso de por vida" style="width:100%;display:block;">
+    <img src="images03-categorias.webp" alt="Qué vas a poder tejer: ropa, llaveros, ropa para bebé, bolsos, mantas y bufandas, amigurumis — cada categoría con video, 20 recursos más, actualizaciones incluidas, acceso de por vida" style="width:100%;display:block;" loading="lazy" decoding="async">
   </section>
 
   <!-- BENEFICIOS -->
   <section style="padding:0;background:var(--rosa-suave);">
-    <img src="images08-beneficios.webp" alt="Qué vas a lograr: vas a tejer paso a paso aunque hoy no sepas sostener el ganchillo, vas a terminar tus piezas con confianza, vas a tener más de 10.000 patrones organizados, vas a dejar de perder tardes enteras buscando en internet, vas a ver exactamente qué hacer en cada paso con cursos en video, vas a seguir patrones claros sin instrucciones a medio traducir, vas a sentir el orgullo de mostrar algo que hiciste con tus propias manos" style="width:100%;display:block;">
+    <img src="images08-beneficios.webp" alt="Qué vas a lograr: vas a tejer paso a paso aunque hoy no sepas sostener el ganchillo, vas a terminar tus piezas con confianza, vas a tener más de 10.000 patrones organizados, vas a dejar de perder tardes enteras buscando en internet, vas a ver exactamente qué hacer en cada paso con cursos en video, vas a seguir patrones claros sin instrucciones a medio traducir, vas a sentir el orgullo de mostrar algo que hiciste con tus propias manos" style="width:100%;display:block;" loading="lazy" decoding="async">
   </section>
 
   <!-- TEASER DE PRECIO (justo después de beneficios, hace de puente hacia la oferta) -->
   <section style="padding:0;">
-    <img src="images10-teaser-precio.webp" alt="Llevate hoy el Sistema Sin Vueltas Perdidas + 20 recursos gratis — Mega Pack de Crochet +10.000 patrones, incluye 2 cursos en video: Bolsos de Trapillo paso a paso y Crochet para Principiantes, +20 bonos gratis, 89% de descuento, $147 USD a $15 USD, precio de lanzamiento" style="width:100%;display:block;">
+    <img src="images10-teaser-precio.webp" alt="Llevate hoy el Sistema Sin Vueltas Perdidas + 20 recursos gratis — Mega Pack de Crochet +10.000 patrones, incluye 2 cursos en video: Bolsos de Trapillo paso a paso y Crochet para Principiantes, +20 bonos gratis, 89% de descuento, $147 USD a $15 USD, precio de lanzamiento" style="width:100%;display:block;" loading="lazy" decoding="async">
   </section>
 
   <!-- OFERTA -->
@@ -429,11 +430,10 @@
       <p class="cta-sub">Pago único · sin suscripción · acceso inmediato por correo</p>
 
     </div>
-  </section>
 
-  <!-- GARANTIA -->
-  <section style="padding-top:6px;">
-    <div class="garantia" style="text-align:center;padding:28px 20px;">
+    <!-- GARANTIA — misma sección que la oferta, con espacio propio en vez de quedar
+         separadas por un hueco en blanco -->
+    <div class="garantia" style="text-align:center;padding:28px 20px;margin-top:48px;">
       <div style="font-size:44px;line-height:1;">🛡️</div>
       <div style="display:inline-block;background:var(--fucsia);color:#fff;font-size:12px;font-weight:800;padding:5px 16px;border-radius:20px;margin-top:8px;">RIESGO CERO</div>
       <h3 style="font-size:22px;margin-top:10px;">Garantía de 60 días</h3>
@@ -442,11 +442,8 @@
   </section>
 
   <!-- BONOS -->
-  <section style="padding:0 0 22px;background:var(--rosa-suave);">
-    <img src="images05-bonos.webp" alt="20 respuestas a las excusas que ya usaste para no empezar — bonos incluidos gratis, sin letra chica: para que domines la técnica, para que nunca te quedes sin ideas, para todo lo que no es tejer pero también importa" style="width:100%;display:block;">
-    <div style="padding:0 22px;">
-      <a href="https://TU-CHECKOUT-AQUI.com" class="cta-btn" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
-    </div>
+  <section style="padding:0;background:var(--rosa-suave);">
+    <img src="images05-bonos.webp" alt="20 respuestas a las excusas que ya usaste para no empezar — bonos incluidos gratis, sin letra chica: para que domines la técnica, para que nunca te quedes sin ideas, para todo lo que no es tejer pero también importa" style="width:100%;display:block;" loading="lazy" decoding="async">
   </section>
 
   <!-- RECAP DE VALOR + CTA INTERMEDIO -->
@@ -454,7 +451,7 @@
        El recap va como imagen (banner de diseño), el botón va como HTML real — mismo patrón técnico
        que el resto de la landing: persuasión en gráfico, acción transaccional en código. -->
   <section style="text-align:center;">
-    <img src="images06-stack.webp" alt="Mega Pack: lo que tenés después de hoy — Curso de Bolsos de Trapillo (el más pedido) y Curso de Crochet para Principiantes, más 20 recursos más para que nunca te falte una excusa resuelta" style="width:100%;border-radius:16px;display:block;">
+    <img src="images06-stack.webp" alt="Mega Pack: lo que tenés después de hoy — Curso de Bolsos de Trapillo (el más pedido) y Curso de Crochet para Principiantes, más 20 recursos más para que nunca te falte una excusa resuelta" style="width:100%;border-radius:16px;display:block;" loading="lazy" decoding="async">
     <p class="cta-sub" style="margin:10px 0 18px;">+ 20 recursos más — para que nunca te falte una excusa resuelta.</p>
 
     <!-- CTA intermedio: segundo cierre para quien ya decidió, antes de que baje a la tabla de precio detallada -->
@@ -465,12 +462,12 @@
   <section style="padding-bottom:10px;">
     <h2 class="tit">Lo que dicen quienes ya lo usan</h2>
     <p class="subtit">Deslizá para ver más reseñas →</p>
-    <div class="reviews-carousel">
-      <img src="images12-resenas-1.png" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 1">
-      <img src="images12-resenas-2.png" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 2">
-      <img src="images12-resenas-3.png" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 3">
-      <img src="images12-resenas-4.png" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 4">
-      <img src="images12-resenas-5.png" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 5">
+    <div class="reviews-carousel" id="reviews-carousel">
+      <img src="images12-resenas-1.png" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 1" loading="lazy" decoding="async">
+      <img src="images12-resenas-2.png" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 2" loading="lazy" decoding="async">
+      <img src="images12-resenas-3.png" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 3" loading="lazy" decoding="async">
+      <img src="images12-resenas-4.png" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 4" loading="lazy" decoding="async">
+      <img src="images12-resenas-5.png" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 5" loading="lazy" decoding="async">
     </div>
   </section>
 
@@ -593,6 +590,32 @@
       var n = 14 + Math.floor(Math.random() * 11); // entre 14 y 24
       elContador.textContent = n;
     }, 4000);
+  }
+
+  // Carrusel de reseñas: avanza solo cada 4 segundos, vuelve al principio al llegar al final.
+  // Se pausa mientras la persona lo toca/desliza, y retoma un ratito después de soltar.
+  var carrusel = document.getElementById('reviews-carousel');
+  if(carrusel){
+    var avanceAuto = null;
+    function iniciarAvance(){
+      avanceAuto = setInterval(function(){
+        var ancho = carrusel.clientWidth;
+        var siguiente = carrusel.scrollLeft + ancho;
+        if(siguiente >= carrusel.scrollWidth - ancho / 2){
+          carrusel.scrollTo({left:0, behavior:'smooth'});
+        } else {
+          carrusel.scrollTo({left:siguiente, behavior:'smooth'});
+        }
+      }, 4000);
+    }
+    function pausarYRetomar(){
+      clearInterval(avanceAuto);
+      clearTimeout(carrusel._retomarTimeout);
+      carrusel._retomarTimeout = setTimeout(iniciarAvance, 5000);
+    }
+    carrusel.addEventListener('touchstart', pausarYRetomar, {passive:true});
+    carrusel.addEventListener('mousedown', pausarYRetomar);
+    iniciarAvance();
   }
 </script>
 
