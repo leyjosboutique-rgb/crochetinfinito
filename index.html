@@ -320,6 +320,16 @@
   .resena-card.negativa{border-color:#e8b4b4;}
   .resena-card.negativa .estrellas{color:#d98c8c;}
 
+  /* carrusel de reseñas — scroll horizontal nativo con snap, sin JS */
+  .reviews-carousel{
+    display:flex;overflow-x:auto;gap:12px;padding:6px 22px 4px;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  }
+  .reviews-carousel img{
+    scroll-snap-align:center;flex:0 0 86%;border-radius:16px;display:block;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+  }
+
   footer{
     background:var(--morado);color:#fff;text-align:center;padding:26px 20px;font-size:12.5px;
   }
@@ -414,6 +424,8 @@
         <span id="contador-viendo">18</span> personas están viendo esta oferta ahora
       </p>
 
+      <img src="images11-stack-precio.webp" alt="Sistema Sin Vueltas Perdidas: +10.000 patrones + cursos + 20 recursos. Curso de Bolsos de Trapillo (el insignia) $47 USD, Biblioteca de +10.000 patrones $37 USD, Curso de Crochet para Principiantes $27 USD, 5 bonos ancla + 15 recursos más $36 USD. Valor total $147 USD, ahorrás $132 USD, hoy pagás solo $15 USD, garantía real, acceso inmediato" style="width:100%;border-radius:16px;display:block;margin:14px 0;">
+
       <a href="https://TU-CHECKOUT-AQUI.com" class="cta-btn" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
       <p class="cta-sub">Pago único · sin suscripción · acceso inmediato por correo</p>
 
@@ -448,29 +460,16 @@
     <p class="cta-sub">Mismo botón, mismo color que el de la sección de precio — la repetición del mismo verde ayuda a que se reconozca de inmediato como "acá se compra", sin tener que pensarlo de nuevo.</p>
   </section>
 
-  <!-- TESTIMONIOS -->
-  <!-- Espacio reservado, va después del desglose de precio + bonos + CTA intermedio, antes del FAQ —
-       mismo lugar que ocupa en la página original. No completar con reseñas inventadas: en el análisis
-       de la página original detectamos que el mix real (algunas 5 estrellas, alguna imperfecta) genera
-       más confianza que un muro 100% perfecto — dejá al menos un testimonio con matiz real cuando tengas
-       casos verificados, no solo los más lindos. -->
-  <section>
+  <!-- TESTIMONIOS / RESEÑAS — un solo carrusel, no dos secciones repitiendo lo mismo -->
+  <section style="padding-bottom:10px;">
     <h2 class="tit">Lo que dicen quienes ya lo usan</h2>
-    <p class="subtit">Espacio para testimonios reales — no se completa hasta tener casos verificados</p>
-    <div class="testi-card">
-      <div class="estrellas">★★★★★</div>
-      <p>[Testimonio real con foto del resultado terminado — completar cuando existan clientas verificadas]</p>
-      <div class="nombre">[Nombre] · Compra verificada <span class="editable">completar</span></div>
-    </div>
-    <div class="testi-card">
-      <div class="estrellas">★★★★★</div>
-      <p>[Testimonio real con foto del resultado terminado]</p>
-      <div class="nombre">[Nombre] · Compra verificada <span class="editable">completar</span></div>
-    </div>
-    <div class="testi-card" style="border-style:dashed;">
-      <div class="estrellas">★★★★☆</div>
-      <p>[Reservá este tercer espacio para un testimonio real con algún matiz, no solo perfecto — le da más credibilidad al conjunto que tres reseñas idénticamente ideales]</p>
-      <div class="nombre">[Nombre] · Compra verificada <span class="editable">completar</span></div>
+    <p class="subtit">Deslizá para ver más reseñas →</p>
+    <div class="reviews-carousel">
+      <img src="images12-resenas-1.webp" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 1">
+      <img src="images13-resenas-2.webp" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 2">
+      <img src="images14-resenas-3.webp" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 3">
+      <img src="images15-resenas-4.webp" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 4">
+      <img src="images16-resenas-5.webp" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 5">
     </div>
   </section>
 
@@ -516,68 +515,6 @@
     </div>
     <p style="font-size:11px;color:var(--texto-suave);text-align:center;margin-top:14px;">
       Nota técnica: se usa &lt;details&gt;/&lt;summary&gt; nativo de HTML — la respuesta siempre está en el código fuente, solo se oculta visualmente hasta el clic. Nunca se carga por JS al momento de abrir. Esto corrige el hallazgo real del análisis original: una auditoría de DOM mostró que esos acordeones podían no traer la respuesta cargada, justo en la sección donde más importa antes de pagar.
-    </p>
-  </section>
-
-  <!-- RESEÑAS COMPLETAS -->
-  <!-- Va después del FAQ, es el último bloque de prueba social antes del cierre — mismo lugar que
-       ocupa en la página original. Todo el contenido acá es plantilla: no se completa con reseñas,
-       nombres, fotos ni un resumen de IA inventados. Este widget solo tiene sentido con datos reales
-       (Loox, Judge.me, Yotpo o similar conectado a la tienda real) — la estructura queda lista para
-       cuando eso exista. -->
-  <section>
-    <div class="resenas-top">
-      <div class="resenas-rating"><span class="estrellas">★★★★★</span> [N] Reseñas <span class="editable">conectar app de reseñas real</span></div>
-      <span style="font-size:12px;color:var(--texto-suave);cursor:pointer;">Escriba una reseña</span>
-    </div>
-    <div class="resenas-tabs">
-      <span>Reseñas del producto <b>[N]</b></span>
-      <span>Reseñas de la tienda <b>[N]</b></span>
-    </div>
-
-    <div class="resumen-ia">
-      <h4>Resumen de reseñas</h4>
-      <p>[No generar este resumen a mano ni inventarlo — un resumen de IA solo es honesto si de verdad se generó a partir de reseñas reales existentes. Dejar vacío hasta tener volumen real de reseñas para resumir.]</p>
-      <p class="tag-ia">✦ Resumido por IA <span class="editable">solo si es real</span></p>
-    </div>
-
-    <div class="resena-grid">
-      <div class="resena-card">
-        <div class="foto-ph"><span>📸</span>Foto real del proyecto terminado</div>
-        <div class="cuerpo">
-          <div class="nombre-fila">[Nombre] <span class="verif">✔ Verificada</span></div>
-          <div class="estrellas">★★★★★</div>
-          <p>[Reseña real — la frase más útil de cada reseña se puede resaltar con &lt;mark&gt;, pero solo si son palabras textuales de la clienta, nunca inventadas]</p>
-        </div>
-      </div>
-      <div class="resena-card">
-        <div class="foto-ph"><span>📸</span>Foto real del proyecto terminado</div>
-        <div class="cuerpo">
-          <div class="nombre-fila">[Nombre] <span class="verif">✔ Verificada</span></div>
-          <div class="estrellas">★★★★★</div>
-          <p>[Reseña real]</p>
-        </div>
-      </div>
-      <div class="resena-card">
-        <div class="foto-ph"><span>📸</span>Foto real del proyecto terminado</div>
-        <div class="cuerpo">
-          <div class="nombre-fila">[Nombre] <span class="verif">✔ Verificada</span></div>
-          <div class="estrellas">★★★★★</div>
-          <p>[Reseña real, idealmente una con un matiz genuino — "me costó al principio, pero..." — no solo elogio perfecto]</p>
-        </div>
-      </div>
-      <div class="resena-card negativa">
-        <div class="foto-ph"><span>📸</span>Foto real del proyecto terminado</div>
-        <div class="cuerpo">
-          <div class="nombre-fila">[Nombre] <span class="verif">✔ Verificada</span></div>
-          <div class="estrellas">★★★☆☆</div>
-          <p>[Espacio reservado para una reseña real y honesta, no perfecta — no ocultar las críticas reales cuando existan; mostrar el mix completo es lo que le da credibilidad al conjunto]</p>
-        </div>
-      </div>
-    </div>
-
-    <p style="font-size:11px;color:var(--texto-suave);text-align:center;margin-top:16px;">
-      Nota: no completar esta sección hasta tener una app de reseñas real conectada (Loox, Judge.me, Yotpo, reseñas nativas de Shopify). Un widget de reseñas falso es el tipo de cosa que, si se descubre, hace más daño a la confianza que no tener reseñas todavía.
     </p>
   </section>
 
