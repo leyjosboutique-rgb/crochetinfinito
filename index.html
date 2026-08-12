@@ -291,18 +291,28 @@
      directa del hallazgo técnico: en el original, una auditoría de DOM mostró que estos
      acordeones podían no traer la respuesta cargada, justo en la sección donde más importa. */
   .faq-acc{
-    background:#fff;border-radius:12px;margin-bottom:10px;border:1px solid var(--borde);overflow:hidden;
+    background:linear-gradient(160deg,#fff,var(--rosa-suave) 220%);
+    border-radius:18px;margin-bottom:12px;border:1.5px solid var(--borde);overflow:hidden;
+    box-shadow:0 4px 14px rgba(224,19,108,.08);transition:border-color .2s,box-shadow .2s;
+  }
+  .faq-acc[open]{
+    border-color:var(--rosa);box-shadow:0 6px 18px rgba(224,19,108,.16);
   }
   .faq-acc summary{
-    list-style:none;cursor:pointer;padding:14px 16px;font-size:14px;font-weight:700;color:var(--texto);
+    list-style:none;cursor:pointer;padding:15px 16px;font-size:14px;font-weight:800;color:var(--morado-oscuro,var(--texto));
     display:flex;justify-content:space-between;align-items:center;gap:10px;
   }
   .faq-acc summary::-webkit-details-marker{display:none;}
   .faq-acc summary::after{
-    content:'+';color:var(--fucsia);font-size:20px;font-weight:800;flex-shrink:0;transition:transform .2s;
+    content:'+';color:#fff;background:var(--fucsia);font-size:16px;font-weight:800;flex-shrink:0;
+    width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    line-height:1;transition:transform .25s ease;box-shadow:0 3px 8px rgba(224,19,108,.35);
   }
-  .faq-acc[open] summary::after{transform:rotate(45deg);}
-  .faq-acc .faq-respuesta{padding:0 16px 16px;font-size:13.5px;color:var(--texto-suave);}
+  .faq-acc[open] summary::after{transform:rotate(135deg);background:var(--morado);}
+  .faq-acc .faq-respuesta{
+    padding:12px 16px 16px;font-size:13.5px;color:var(--texto-suave);line-height:1.55;
+    border-top:1px dashed var(--borde);
+  }
 
   /* reseñas completas */
   .resenas-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;}
