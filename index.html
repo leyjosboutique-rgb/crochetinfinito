@@ -25,7 +25,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-  #oferta{scroll-margin-top:64px;}
+  #oferta, #cta-oferta{scroll-margin-top:64px;}
   body{
     font-family:'Nunito','Segoe UI',Verdana,Arial,sans-serif;
     background:var(--crema);
@@ -195,7 +195,7 @@
   <!-- SECCIÓN 1 — Barra superior -->
   <!-- Opción control (activa): día real calculado por JS, cápsula fucsia. Usar si vas a testear urgencia de "hoy". -->
   <div class="topbar" id="topbar-control">
-    <div>🔥 HOY <span class="cap" id="dia-hoy">MARTES</span> ÚLTIMO DÍA CON DESCUENTO <a href="#oferta" class="topbar-mano" aria-label="Ir a la oferta">👈</a></div>
+    <div>🔥 HOY <span class="cap" id="dia-hoy">MARTES</span> ÚLTIMO DÍA CON DESCUENTO <a href="#cta-oferta" class="topbar-mano" aria-label="Ir al botón de compra">👈</a></div>
     <div class="topbar-linea2" id="topbar-rotador">⚡ Acceso inmediato después de tu compra</div>
   </div>
   <!-- Opción evergreen (alternativa, sin urgencia de fecha): descomentar esta línea y comentar la de arriba para usarla.
@@ -229,7 +229,7 @@
   </section>
 
   <!-- OFERTA -->
-  <section id="oferta">
+  <section id="oferta" style="padding:30px 0;">
     <div class="oferta">
       <span style="position:absolute;top:10px;left:12px;font-size:22px;opacity:.5;">🧶</span>
       <span style="position:absolute;top:14px;right:14px;font-size:16px;opacity:.5;">✨</span>
@@ -258,7 +258,7 @@
         <span id="contador-viendo">18</span> personas están viendo esta oferta ahora
       </p>
 
-      <a href="https://TU-CHECKOUT-AQUI.com" class="cta-btn" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
+      <a href="https://TU-CHECKOUT-AQUI.com" id="cta-oferta" class="cta-btn" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
       <p class="cta-sub">Pago único · sin suscripción · acceso inmediato por correo</p>
 
       <!-- GARANTIA — imagen, dentro de la misma tarjeta de oferta, sin caja separada -->
