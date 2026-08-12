@@ -24,6 +24,8 @@
     --borde:#f3d4e2;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  #oferta{scroll-margin-top:64px;}
   body{
     font-family:'Nunito','Segoe UI',Verdana,Arial,sans-serif;
     background:var(--crema);
@@ -62,6 +64,15 @@
     padding:10px 10px;letter-spacing:.2px;border-bottom:1px solid var(--borde);
     position:sticky;top:0;z-index:50;
     box-shadow:0 2px 8px rgba(0,0,0,.06);
+  }
+  .topbar-mano{
+    display:inline-block;font-size:16px;text-decoration:none;line-height:1;
+    margin-left:2px;vertical-align:middle;
+    animation:mano-click 1s ease-in-out infinite;
+  }
+  @keyframes mano-click{
+    0%,100%{transform:translateX(0);}
+    50%{transform:translateX(-4px);}
   }
   .topbar .cap{
     background:var(--fucsia);color:#fff;padding:2px 10px;border-radius:20px;
@@ -369,7 +380,7 @@
   <!-- SECCIÓN 1 — Barra superior -->
   <!-- Opción control (activa): día real calculado por JS, cápsula fucsia. Usar si vas a testear urgencia de "hoy". -->
   <div class="topbar" id="topbar-control">
-    <div>🔥 HOY <span class="cap" id="dia-hoy">MARTES</span> ÚLTIMO DÍA CON DESCUENTO</div>
+    <div>🔥 HOY <span class="cap" id="dia-hoy">MARTES</span> ÚLTIMO DÍA CON DESCUENTO <a href="#oferta" class="topbar-mano" aria-label="Ir a la oferta">👈</a></div>
     <div class="topbar-linea2" id="topbar-rotador">⚡ Acceso inmediato después de tu compra</div>
   </div>
   <!-- Opción evergreen (alternativa, sin urgencia de fecha): descomentar esta línea y comentar la de arriba para usarla.
@@ -403,7 +414,7 @@
   </section>
 
   <!-- OFERTA -->
-  <section>
+  <section id="oferta">
     <div class="oferta">
       <span style="position:absolute;top:10px;left:12px;font-size:22px;opacity:.5;">🧶</span>
       <span style="position:absolute;top:14px;right:14px;font-size:16px;opacity:.5;">✨</span>
