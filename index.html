@@ -65,6 +65,11 @@
     margin:0 4px;font-weight:800;display:inline-block;
   }
   .topbar .sep{color:var(--rosa);margin:0 4px;}
+  .topbar-linea2{
+    font-size:11.5px;font-weight:700;margin-top:2px;color:var(--fucsia);
+    transition:opacity .3s ease, transform .3s ease;
+    transform:translateY(0);opacity:1;
+  }
 
   /* hero */
   .hero{
@@ -303,7 +308,8 @@
   <!-- SECCIÓN 1 — Barra superior -->
   <!-- Opción control (activa): día real calculado por JS, cápsula fucsia. Usar si vas a testear urgencia de "hoy". -->
   <div class="topbar" id="topbar-control">
-    🔥 HOY <span class="cap" id="dia-hoy">MARTES</span> ÚLTIMO DÍA CON DESCUENTO <span class="sep">•</span> ⚡ ACCESO INMEDIATO DESPUÉS DE TU COMPRA
+    <div>🔥 HOY <span class="cap" id="dia-hoy">MARTES</span> ÚLTIMO DÍA CON DESCUENTO</div>
+    <div class="topbar-linea2" id="topbar-rotador">⚡ Acceso inmediato después de tu compra</div>
   </div>
   <!-- Opción evergreen (alternativa, sin urgencia de fecha): descomentar esta línea y comentar la de arriba para usarla.
   <div class="topbar">
@@ -592,6 +598,36 @@
   if(elDia){ elDia.textContent = dias[new Date().getDay()]; }
   var elDia2 = document.getElementById('dia-hoy-2');
   if(elDia2){ elDia2.textContent = dias[new Date().getDay()]; }
+
+  // Barra superior: la segunda línea rota cada 5 segundos entre distintos disparadores
+  // (no repite siempre lo mismo, así refuerza varios argumentos sin que se sienta como un solo cartel fijo).
+  var mensajesTopbar = [
+    '⚡ Acceso inmediato después de tu compra',
+    '🔒 Compra 100% segura y garantizada',
+    '📥 Contenido 100% descargable',
+    '💳 Pago único · sin suscripciones',
+    '🔥 De $147 USD a solo $15 USD'
+  ];
+  var idxTopbar = 0;
+  var elRotador = document.getElementById('topbar-rotador');
+  if(elRotador){
+    setInterval(function(){
+      // sale hacia arriba
+      elRotador.style.opacity = '0';
+      elRotador.style.transform = 'translateY(-8px)';
+      setTimeout(function(){
+        idxTopbar = (idxTopbar + 1) % mensajesTopbar.length;
+        elRotador.textContent = mensajesTopbar[idxTopbar];
+        // se reposiciona abajo sin animar, y entra deslizando hacia arriba
+        elRotador.style.transition = 'none';
+        elRotador.style.transform = 'translateY(8px)';
+        void elRotador.offsetWidth; // fuerza reflow para que la siguiente transición se note
+        elRotador.style.transition = 'opacity .3s ease, transform .3s ease';
+        elRotador.style.opacity = '1';
+        elRotador.style.transform = 'translateY(0)';
+      }, 300);
+    }, 5000);
+  }
 
   // Timer de ejemplo: cuenta regresiva de 48 horas desde que se carga la página.
   // Ajustar a una fecha de cierre real antes de publicar — no dejarlo circular indefinidamente.
