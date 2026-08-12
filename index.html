@@ -322,13 +322,13 @@
 
   /* carrusel de reseñas — scroll horizontal nativo con snap, sin JS */
   .reviews-carousel{
-    display:flex;overflow-x:auto;gap:12px;padding:6px 22px 4px;
+    display:flex;overflow-x:auto;
     scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
   }
   .reviews-carousel img{
-    scroll-snap-align:center;flex:0 0 86%;width:86%;max-width:86%;min-width:0;
-    height:auto;border-radius:16px;display:block;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    scroll-snap-align:start;scroll-snap-stop:always;
+    flex:0 0 100%;width:100%;max-width:100%;min-width:0;
+    height:auto;display:block;
   }
 
   footer{
@@ -442,8 +442,11 @@
   </section>
 
   <!-- BONOS -->
-  <section style="padding:0;background:var(--rosa-suave);">
+  <section style="padding:0 0 22px;background:var(--rosa-suave);">
     <img src="images05-bonos.webp" alt="20 respuestas a las excusas que ya usaste para no empezar — bonos incluidos gratis, sin letra chica: para que domines la técnica, para que nunca te quedes sin ideas, para todo lo que no es tejer pero también importa" style="width:100%;display:block;">
+    <div style="padding:0 22px;">
+      <a href="https://TU-CHECKOUT-AQUI.com" class="cta-btn" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
+    </div>
   </section>
 
   <!-- RECAP DE VALOR + CTA INTERMEDIO -->
