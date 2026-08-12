@@ -6,7 +6,7 @@
 <title>Sistema Sin Vueltas Perdidas — Mega Pack Crochet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="images01-hero.webp" fetchpriority="high">
 <style>
   :root{
@@ -33,29 +33,10 @@
     line-height:1.55;
   }
   /* Tipografía redondeada tipo "clay 3D" para que el texto real combine con las imágenes generadas */
-  h1, h2, h3, .pill, .badge, .badge-desc, .cta-btn, .precio-final, .precio-tachado,
-  .reserva-dia, .num, .faq-eyebrow, footer p:first-child, .topbar{
+  h2, .cta-btn, .reserva-dia, .faq-eyebrow, .topbar, .timer-box{
     font-family:'Baloo 2','Nunito',sans-serif;
   }
   .wrap{max-width:640px;margin:0 auto;background:#fff;}
-  img.ph{width:100%;display:block;}
-
-  /* placeholder de foto */
-  .foto-ph{
-    border:2px dashed var(--rosa);
-    background:var(--rosa-suave);
-    border-radius:16px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;color:var(--fucsia);font-size:13px;font-weight:600;
-    padding:24px 12px;min-height:160px;
-  }
-  .foto-ph span{font-size:28px;display:block;margin-bottom:6px;}
-
-  .editable{
-    display:inline-block;background:#fff6ea;border:1.5px dashed #e0a400;
-    color:#a06a00;font-size:12px;font-weight:700;border-radius:6px;
-    padding:2px 8px;margin-left:6px;vertical-align:middle;
-  }
 
   /* barra superior */
   .topbar{
@@ -88,21 +69,15 @@
   /* hero */
   .hero{
     background:radial-gradient(circle at 30% 0%,#fff0f6,var(--rosa-suave) 60%);
-    padding:34px 22px 26px;text-align:center;
-  }
-  .hero h1{
-    font-size:30px;line-height:1.18;color:var(--fucsia);
-    font-weight:800;margin-bottom:14px;
-  }
-  .hero h1 .sub{display:block;font-size:17px;color:var(--morado);font-weight:700;margin-top:6px;}
-  .hero p.claim{font-size:15px;color:var(--texto-suave);max-width:460px;margin:0 auto 20px;}
-  .pill-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:22px;}
-  .pill{
-    background:#fff;border:1px solid var(--borde);border-radius:20px;
-    font-size:12.5px;font-weight:700;color:var(--morado);padding:6px 12px;
   }
 
-  section{padding:30px 22px;}
+  /* content-visibility: el navegador no calcula layout/paint de secciones fuera de pantalla
+     hasta que están por entrar al viewport — mejora sensible en mobile en páginas largas con
+     muchas imágenes apiladas como esta. */
+  section{
+    padding:30px 22px;
+    content-visibility:auto;contain-intrinsic-size:auto 600px;
+  }
   h2.tit{
     font-size:26px;color:var(--fucsia);text-align:center;margin-bottom:8px;font-weight:800;
     letter-spacing:.3px;
@@ -118,62 +93,6 @@
     margin-bottom:22px;
   }
 
-  /* dolores */
-  .dolor{
-    display:flex;gap:12px;align-items:flex-start;background:var(--rosa-suave);
-    border-radius:14px;padding:14px 16px;margin-bottom:12px;
-  }
-  .dolor .x{
-    background:var(--fucsia);color:#fff;min-width:26px;height:26px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;
-  }
-  .dolor p{font-size:14.5px;color:var(--texto);}
-
-  /* reframe box */
-  .reframe{
-    background:linear-gradient(135deg,var(--morado),var(--fucsia));
-    color:#fff;border-radius:18px;padding:24px 20px;text-align:center;margin:26px 0;
-  }
-  .reframe p{font-size:16px;font-weight:700;line-height:1.5;}
-  .reframe p.small{font-size:13.5px;font-weight:400;opacity:.9;margin-top:10px;}
-
-  /* categorias */
-  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;}
-  .cat-grid .foto-ph{min-height:88px;font-size:11px;padding:10px 6px;border-radius:12px;}
-  .cat-grid .foto-ph span{font-size:20px;margin-bottom:2px;}
-
-  /* mecanismo */
-  .mecanismo{
-    background:var(--morado-suave);border-radius:18px;padding:26px 20px;margin:10px 0;
-  }
-  .mecanismo .badge{
-    display:inline-block;background:var(--morado);color:#fff;font-size:12px;font-weight:800;
-    padding:4px 12px;border-radius:20px;margin-bottom:12px;
-  }
-  .mecanismo h3{font-size:20px;color:var(--morado);margin-bottom:10px;font-weight:800;}
-  .mecanismo p{font-size:14.5px;color:var(--texto);margin-bottom:10px;}
-
-  /* beneficios */
-  .beneficio{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px;}
-  .beneficio .check{
-    background:var(--verde);color:#fff;min-width:26px;height:26px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;
-  }
-  .beneficio b{color:var(--fucsia);}
-  .beneficio p{font-size:14.5px;}
-
-  /* producto mini — titular tipo "sticker 3D" igual que el resto de las imágenes de la página */
-  .producto-mini{
-    font-family:'Baloo 2','Nunito',sans-serif;
-    font-size:32px;color:var(--fucsia);font-weight:800;letter-spacing:.2px;
-    text-align:center;line-height:1.15;
-    text-shadow:2px 2px 0 #fff,-2px -2px 0 #fff,2px -2px 0 #fff,-2px 2px 0 #fff,0 4px 8px rgba(224,19,108,.25);
-  }
-  .producto-mini b{color:var(--morado);}
-  .producto-desc{
-    font-size:14.5px;color:var(--morado);margin:8px 0 16px;font-weight:700;text-align:center;
-  }
-
   /* tarjeta de reserva — un solo mecanismo de urgencia, no tres apilados */
   .reserva-card{
     background:var(--rosa-suave);border-radius:22px;padding:20px 16px;margin:16px 0;text-align:center;
@@ -184,26 +103,12 @@
     border-radius:20px;font-size:12px;font-weight:700;color:var(--fucsia);padding:5px 12px;margin-bottom:10px;
   }
   .reserva-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--verde);display:inline-block;}
-  .reserva-dia-label{font-size:12.5px;color:var(--texto-suave);margin-bottom:2px;}
-  .reserva-dia{font-size:30px;font-weight:900;color:var(--morado-oscuro);margin-bottom:8px;}
+  .reserva-dia{font-size:30px;font-weight:800;color:var(--morado-oscuro);margin-bottom:8px;}
   .reserva-texto{
     font-size:13.5px;color:var(--morado-oscuro);max-width:340px;margin:0 auto 12px;
     font-weight:600;line-height:1.45;
   }
   .reserva-texto b{color:var(--fucsia);}
-
-  .cupos-nota{
-    font-size:12px;color:var(--texto-suave);text-align:center;background:#fff;
-    border:1px dashed var(--borde);border-radius:10px;padding:8px 12px;margin:14px 0;
-  }
-
-  .pago-icons{
-    display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px;
-  }
-  .pago-icons span{
-    font-size:11.5px;color:var(--texto-suave);background:#fff;border:1px solid var(--borde);
-    border-radius:8px;padding:5px 9px;
-  }
 
   /* oferta */
   .oferta{
@@ -212,30 +117,11 @@
     box-shadow:0 10px 26px rgba(224,19,108,.14);
     position:relative;
   }
-  .precio-row{text-align:center;margin:14px 0;}
-  .precio-tachado{font-size:16px;color:var(--texto-suave);text-decoration:line-through;}
-  .precio-final{
-    font-size:48px;color:var(--fucsia);font-weight:900;
-    text-shadow:2px 2px 0 #fff,-2px -2px 0 #fff,2px -2px 0 #fff,-2px 2px 0 #fff,0 4px 10px rgba(224,19,108,.3);
-  }
-  .precio-final small{font-size:18px;font-weight:700;}
-  .badge-desc{
-    display:inline-block;background:var(--fucsia);color:#fff;font-size:12px;font-weight:800;
-    padding:6px 16px;border-radius:20px;margin-top:6px;
-    box-shadow:0 4px 10px rgba(224,19,108,.35);
-  }
 
-  .stack-tabla{width:100%;border-collapse:collapse;margin:18px 0;font-size:13.5px;}
-  .stack-tabla td{padding:9px 4px;border-bottom:1px dashed var(--borde);}
-  .stack-tabla td:last-child{text-align:right;text-decoration:line-through;color:var(--texto-suave);}
-  .stack-tabla tr.total td{
-    font-weight:800;color:var(--fucsia);border-bottom:none;border-top:2px solid var(--rosa);
-    text-decoration:none;padding-top:12px;
-  }
-
+  /* solo anima transform (compositing), no box-shadow, para no forzar repintados en celulares de gama baja */
   @keyframes pulso-cta{
-    0%,100%{transform:scale(1);box-shadow:0 8px 20px rgba(31,174,107,.4);}
-    50%{transform:scale(1.025);box-shadow:0 10px 28px rgba(31,174,107,.6);}
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.025);}
   }
   .cta-btn{
     display:block;width:100%;background:linear-gradient(90deg,#1fae6b,#2ecc7a);
@@ -260,41 +146,6 @@
   .timer-box span{display:block;font-size:20px;font-weight:800;}
   .timer-box small{font-size:10px;opacity:.85;}
 
-  /* garantia — misma paleta rosa/morado del resto de la página, no verde genérico */
-  .garantia{
-    background:var(--morado-suave);border:1.5px solid var(--rosa);border-radius:22px;padding:20px;margin:24px 0;
-    box-shadow:0 8px 20px rgba(107,63,160,.14);
-  }
-  .garantia h3{color:var(--morado);font-size:16px;margin-bottom:8px;font-weight:800;}
-  .garantia p{font-size:14px;color:var(--texto);margin-bottom:8px;}
-  .garantia p.destacado{font-weight:700;color:var(--fucsia);}
-
-  /* bonos */
-  .bono-list{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px;}
-  .bono{
-    display:flex;align-items:center;gap:12px;background:var(--rosa-suave);
-    border-radius:12px;padding:10px 14px;
-  }
-  .bono .num{
-    background:var(--fucsia);color:#fff;min-width:28px;height:28px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;
-  }
-  .bono p{font-size:13.5px;}
-  .bono b{color:var(--morado);}
-
-  /* testimonios */
-  .testi-card{
-    background:#fff;border:1px solid var(--borde);border-radius:14px;padding:16px;margin-bottom:12px;
-  }
-  .testi-card .estrellas{color:#f5a623;font-size:14px;margin-bottom:6px;}
-  .testi-card p{font-size:13.5px;color:var(--texto);}
-  .testi-card .nombre{margin-top:8px;font-size:12.5px;font-weight:700;color:var(--morado);}
-
-  /* faq */
-  .faq-item{border-bottom:1px solid var(--borde);padding:14px 0;}
-  .faq-item h4{font-size:14.5px;color:var(--fucsia);margin-bottom:6px;font-weight:700;}
-  .faq-item p{font-size:13.5px;color:var(--texto-suave);}
-
   .faq-eyebrow{text-align:center;font-size:11.5px;font-weight:800;color:var(--fucsia);letter-spacing:1px;margin-bottom:4px;}
 
   /* acordeón real con <details>/<summary>: la respuesta SIEMPRE está en el HTML fuente,
@@ -310,12 +161,12 @@
     border-color:var(--rosa);box-shadow:0 6px 18px rgba(224,19,108,.16);
   }
   .faq-acc summary{
-    list-style:none;cursor:pointer;padding:15px 16px;font-size:14px;font-weight:800;color:var(--morado-oscuro,var(--texto));
+    list-style:none;cursor:pointer;padding:15px 16px;font-size:14px;font-weight:700;color:var(--morado-oscuro,var(--texto));
     display:flex;justify-content:space-between;align-items:center;gap:10px;
   }
   .faq-acc summary::-webkit-details-marker{display:none;}
   .faq-acc summary::after{
-    content:'+';color:#fff;background:var(--fucsia);font-size:16px;font-weight:800;flex-shrink:0;
+    content:'+';color:#fff;background:var(--fucsia);font-size:16px;font-weight:700;flex-shrink:0;
     width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;
     line-height:1;transition:transform .25s ease;box-shadow:0 3px 8px rgba(224,19,108,.35);
   }
@@ -324,33 +175,6 @@
     padding:12px 16px 16px;font-size:13.5px;color:var(--texto-suave);line-height:1.55;
     border-top:1px dashed var(--borde);
   }
-
-  /* reseñas completas */
-  .resenas-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;}
-  .resenas-rating{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;}
-  .resenas-rating .estrellas{color:#f5a623;font-size:16px;}
-  .resenas-tabs{display:flex;gap:8px;font-size:12.5px;margin-bottom:16px;}
-  .resenas-tabs span{background:#fff;border:1px solid var(--borde);border-radius:8px;padding:5px 10px;color:var(--texto-suave);}
-  .resenas-tabs span b{color:var(--texto);}
-
-  .resumen-ia{
-    background:var(--morado-suave);border-radius:12px;padding:16px;margin-bottom:20px;
-  }
-  .resumen-ia h4{font-size:14px;color:var(--morado);margin-bottom:6px;}
-  .resumen-ia p{font-size:13px;color:var(--texto);margin-bottom:8px;}
-  .resumen-ia .tag-ia{font-size:11px;color:var(--texto-suave);}
-
-  .resena-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-  .resena-card{background:#fff;border:1px solid var(--borde);border-radius:12px;overflow:hidden;}
-  .resena-card .foto-ph{border-radius:0;min-height:110px;font-size:10.5px;padding:8px;}
-  .resena-card .cuerpo{padding:10px 12px;}
-  .resena-card .nombre-fila{display:flex;align-items:center;gap:4px;font-size:12px;font-weight:700;margin-bottom:2px;}
-  .resena-card .verif{color:var(--verde);font-size:11px;}
-  .resena-card .estrellas{color:#f5a623;font-size:12px;margin-bottom:4px;}
-  .resena-card p{font-size:11.5px;color:var(--texto);line-height:1.4;}
-  .resena-card mark{background:#ffe9a8;color:var(--texto);padding:0 2px;}
-  .resena-card.negativa{border-color:#e8b4b4;}
-  .resena-card.negativa .estrellas{color:#d98c8c;}
 
   /* carrusel de reseñas — scroll horizontal nativo con snap, sin JS */
   .reviews-carousel{
@@ -363,15 +187,6 @@
     height:auto;display:block;
   }
 
-  footer{
-    background:var(--morado);color:#fff;text-align:center;padding:26px 20px;font-size:12.5px;
-  }
-  footer p{opacity:.85;margin-top:6px;}
-
-  .nota-tecnica{
-    background:#fffbe6;border:1px solid #f0dd8a;border-radius:10px;
-    padding:10px 14px;font-size:11.5px;color:#7a6300;margin:0 22px 18px;
-  }
 </style>
 </head>
 <body>
@@ -427,7 +242,7 @@
       <!-- Reserva + urgencia, mismo mecanismo que el original (día + timer + cesión de cupo) -->
       <div class="reserva-card">
         <div class="reserva-pill"><span class="dot"></span> tu lugar está reservado</div>
-        <p style="font-weight:800;color:var(--fucsia);font-size:12.5px;letter-spacing:.5px;margin-bottom:2px;">OFERTA SOLO POR HOY</p>
+        <p style="font-weight:700;color:var(--fucsia);font-size:12.5px;letter-spacing:.5px;margin-bottom:2px;">OFERTA SOLO POR HOY</p>
         <div class="reserva-dia" id="dia-hoy-2">MARTES</div>
         <div class="timer-box">
           <div><span id="mm">15</span><small>MIN</small></div>
