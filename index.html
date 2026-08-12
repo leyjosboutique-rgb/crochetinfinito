@@ -225,14 +225,14 @@
   .timer-box span{display:block;font-size:20px;font-weight:800;}
   .timer-box small{font-size:10px;opacity:.85;}
 
-  /* garantia */
+  /* garantia — misma paleta rosa/morado del resto de la página, no verde genérico */
   .garantia{
-    background:#eefaf3;border:1.5px solid #b7e6cb;border-radius:22px;padding:20px;margin:24px 0;
-    box-shadow:0 8px 20px rgba(15,122,69,.12);
+    background:var(--morado-suave);border:1.5px solid var(--rosa);border-radius:22px;padding:20px;margin:24px 0;
+    box-shadow:0 8px 20px rgba(107,63,160,.14);
   }
-  .garantia h3{color:#0f7a45;font-size:16px;margin-bottom:8px;font-weight:800;}
+  .garantia h3{color:var(--morado);font-size:16px;margin-bottom:8px;font-weight:800;}
   .garantia p{font-size:14px;color:var(--texto);margin-bottom:8px;}
-  .garantia p.destacado{font-weight:700;color:#0f7a45;}
+  .garantia p.destacado{font-weight:700;color:var(--fucsia);}
 
   /* bonos */
   .bono-list{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px;}
@@ -375,7 +375,7 @@
         </div>
       </div>
       <div style="text-align:center;">
-        <div class="badge-desc" style="background:#0f7a45;">🛡️ Garantía de 60 días</div>
+        <div class="badge-desc" style="background:var(--morado);">🛡️ Garantía de 60 días</div>
       </div>
 
       <!-- Reserva + urgencia, mismo mecanismo que el original (día + timer + cesión de cupo) -->
@@ -411,7 +411,7 @@
   <section style="padding-top:6px;">
     <div class="garantia" style="text-align:center;padding:28px 20px;">
       <div style="font-size:44px;line-height:1;">🛡️</div>
-      <div style="display:inline-block;background:#0f7a45;color:#fff;font-size:12px;font-weight:800;padding:5px 16px;border-radius:20px;margin-top:8px;">RIESGO CERO</div>
+      <div style="display:inline-block;background:var(--fucsia);color:#fff;font-size:12px;font-weight:800;padding:5px 16px;border-radius:20px;margin-top:8px;">RIESGO CERO</div>
       <h3 style="font-size:22px;margin-top:10px;">Garantía de 60 días</h3>
       <p class="destacado" style="font-size:16px;">Y si aun así no era para vos, te devolvemos tu plata. Sin vueltas.</p>
     </div>
@@ -427,8 +427,7 @@
        El recap va como imagen (banner de diseño), el botón va como HTML real — mismo patrón técnico
        que el resto de la landing: persuasión en gráfico, acción transaccional en código. -->
   <section style="text-align:center;">
-    <img src="images04-recap.webp" alt="Mega Pack: lo que tenés después de hoy — Mega Pack de Crochet +10.000 patrones + 20 recursos, curso insignia Bolsos de Trapillo (el más pedido) y curso de Crochet para Principiantes, ambos en video, más 20 recursos adicionales para que nunca falte una excusa resuelta" style="width:100%;border-radius:16px;display:block;">
-    <img src="images07-recap2.webp" alt="Mega Pack: lo que tenés después de hoy — complemento visual del recap, curso insignia Bolsos de Trapillo (el más pedido) y curso de Crochet para Principiantes, más 20 recursos adicionales" style="width:100%;border-radius:16px;display:block;margin-top:10px;">
+    <img src="images07-recap2.webp" alt="Mega Pack: lo que tenés después de hoy — complemento visual del recap, curso insignia Bolsos de Trapillo (el más pedido) y curso de Crochet para Principiantes, más 20 recursos adicionales" style="width:100%;border-radius:16px;display:block;">
     <p class="cta-sub" style="margin:10px 0 18px;">+ 20 recursos más — para que nunca te falte una excusa resuelta.</p>
 
     <!-- CTA intermedio: segundo cierre para quien ya decidió, antes de que baje a la tabla de precio detallada -->
