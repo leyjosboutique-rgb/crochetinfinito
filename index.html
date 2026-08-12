@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema Sin Vueltas Perdidas — Mega Pack Crochet</title>
+<style>
+  :root{
+    --rosa:#ff5c8a;
+    --rosa-suave:#ffe3ee;
+    --rosa-clarita:#fff2f7;
+    --fucsia:#e0136c;
+    --morado:#6b3fa0;
+    --morado-oscuro:#4a1f6b;
+    --morado-suave:#efe6ff;
+    --crema:#fff8fb;
+    --texto:#3a2440;
+    --texto-suave:#7a6580;
+    --verde:#1fae6b;
+    --borde:#f3d4e2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI',Verdana,Arial,sans-serif;
+    background:var(--crema);
+    color:var(--texto);
+    line-height:1.55;
+  }
+  .wrap{max-width:640px;margin:0 auto;background:#fff;}
+  img.ph{width:100%;display:block;}
+
+  /* placeholder de foto */
+  .foto-ph{
+    border:2px dashed var(--rosa);
+    background:var(--rosa-suave);
+    border-radius:16px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;color:var(--fucsia);font-size:13px;font-weight:600;
+    padding:24px 12px;min-height:160px;
+  }
+  .foto-ph span{font-size:28px;display:block;margin-bottom:6px;}
+
+  .editable{
+    display:inline-block;background:#fff6ea;border:1.5px dashed #e0a400;
+    color:#a06a00;font-size:12px;font-weight:700;border-radius:6px;
+    padding:2px 8px;margin-left:6px;vertical-align:middle;
+  }
+
+  /* barra superior */
+  .topbar{
+    background:var(--rosa-clarita);
+    color:var(--morado-oscuro);text-align:center;font-size:12.5px;font-weight:700;
+    padding:10px 10px;letter-spacing:.2px;border-bottom:1px solid var(--borde);
+  }
+  .topbar .cap{
+    background:var(--fucsia);color:#fff;padding:2px 10px;border-radius:20px;
+    margin:0 4px;font-weight:800;display:inline-block;
+  }
+  .topbar .sep{color:var(--rosa);margin:0 4px;}
+
+  /* hero */
+  .hero{
+    background:radial-gradient(circle at 30% 0%,#fff0f6,var(--rosa-suave) 60%);
+    padding:34px 22px 26px;text-align:center;
+  }
+  .hero h1{
+    font-size:30px;line-height:1.18;color:var(--fucsia);
+    font-weight:800;margin-bottom:14px;
+  }
+  .hero h1 .sub{display:block;font-size:17px;color:var(--morado);font-weight:700;margin-top:6px;}
+  .hero p.claim{font-size:15px;color:var(--texto-suave);max-width:460px;margin:0 auto 20px;}
+  .pill-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:22px;}
+  .pill{
+    background:#fff;border:1px solid var(--borde);border-radius:20px;
+    font-size:12.5px;font-weight:700;color:var(--morado);padding:6px 12px;
+  }
+
+  section{padding:30px 22px;}
+  h2.tit{
+    font-size:22px;color:var(--fucsia);text-align:center;margin-bottom:6px;font-weight:800;
+  }
+  p.subtit{text-align:center;color:var(--texto-suave);font-size:14px;margin-bottom:22px;}
+
+  /* dolores */
+  .dolor{
+    display:flex;gap:12px;align-items:flex-start;background:var(--rosa-suave);
+    border-radius:14px;padding:14px 16px;margin-bottom:12px;
+  }
+  .dolor .x{
+    background:var(--fucsia);color:#fff;min-width:26px;height:26px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;
+  }
+  .dolor p{font-size:14.5px;color:var(--texto);}
+
+  /* reframe box */
+  .reframe{
+    background:linear-gradient(135deg,var(--morado),var(--fucsia));
+    color:#fff;border-radius:18px;padding:24px 20px;text-align:center;margin:26px 0;
+  }
+  .reframe p{font-size:16px;font-weight:700;line-height:1.5;}
+  .reframe p.small{font-size:13.5px;font-weight:400;opacity:.9;margin-top:10px;}
+
+  /* categorias */
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;}
+  .cat-grid .foto-ph{min-height:88px;font-size:11px;padding:10px 6px;border-radius:12px;}
+  .cat-grid .foto-ph span{font-size:20px;margin-bottom:2px;}
+
+  /* mecanismo */
+  .mecanismo{
+    background:var(--morado-suave);border-radius:18px;padding:26px 20px;margin:10px 0;
+  }
+  .mecanismo .badge{
+    display:inline-block;background:var(--morado);color:#fff;font-size:12px;font-weight:800;
+    padding:4px 12px;border-radius:20px;margin-bottom:12px;
+  }
+  .mecanismo h3{font-size:20px;color:var(--morado);margin-bottom:10px;font-weight:800;}
+  .mecanismo p{font-size:14.5px;color:var(--texto);margin-bottom:10px;}
+
+  /* beneficios */
+  .beneficio{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px;}
+  .beneficio .check{
+    background:var(--verde);color:#fff;min-width:26px;height:26px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;
+  }
+  .beneficio b{color:var(--fucsia);}
+  .beneficio p{font-size:14.5px;}
+
+  /* producto mini (encabezado transaccional, tono de ficha de producto) */
+  .producto-mini{font-size:13px;color:var(--texto-suave);font-weight:700;letter-spacing:.3px;}
+  .producto-mini b{color:var(--morado);}
+  .producto-desc{font-size:14.5px;color:var(--texto);margin:4px 0 16px;font-weight:600;}
+
+  /* tarjeta de reserva — un solo mecanismo de urgencia, no tres apilados */
+  .reserva-card{
+    background:var(--rosa-suave);border-radius:16px;padding:18px 16px;margin:16px 0;text-align:center;
+  }
+  .reserva-pill{
+    display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--borde);
+    border-radius:20px;font-size:12px;font-weight:700;color:var(--fucsia);padding:5px 12px;margin-bottom:10px;
+  }
+  .reserva-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--verde);display:inline-block;}
+  .reserva-dia-label{font-size:12.5px;color:var(--texto-suave);margin-bottom:2px;}
+  .reserva-dia{font-size:30px;font-weight:900;color:var(--morado-oscuro);margin-bottom:8px;}
+  .reserva-texto{font-size:13px;color:var(--texto-suave);max-width:340px;margin:0 auto 12px;}
+
+  .cupos-nota{
+    font-size:12px;color:var(--texto-suave);text-align:center;background:#fff;
+    border:1px dashed var(--borde);border-radius:10px;padding:8px 12px;margin:14px 0;
+  }
+
+  .pago-icons{
+    display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px;
+  }
+  .pago-icons span{
+    font-size:11.5px;color:var(--texto-suave);background:#fff;border:1px solid var(--borde);
+    border-radius:8px;padding:5px 9px;
+  }
+
+  /* oferta */
+  .oferta{
+    background:linear-gradient(160deg,#fff,var(--rosa-suave));
+    border:2px solid var(--rosa);border-radius:20px;padding:24px 20px;margin:10px 0;
+  }
+  .precio-row{text-align:center;margin:14px 0;}
+  .precio-tachado{font-size:16px;color:var(--texto-suave);text-decoration:line-through;}
+  .precio-final{font-size:38px;color:var(--fucsia);font-weight:900;}
+  .precio-final small{font-size:16px;font-weight:700;}
+  .badge-desc{
+    display:inline-block;background:var(--fucsia);color:#fff;font-size:12px;font-weight:800;
+    padding:5px 14px;border-radius:20px;margin-top:6px;
+  }
+
+  .stack-tabla{width:100%;border-collapse:collapse;margin:18px 0;font-size:13.5px;}
+  .stack-tabla td{padding:9px 4px;border-bottom:1px dashed var(--borde);}
+  .stack-tabla td:last-child{text-align:right;text-decoration:line-through;color:var(--texto-suave);}
+  .stack-tabla tr.total td{
+    font-weight:800;color:var(--fucsia);border-bottom:none;border-top:2px solid var(--rosa);
+    text-decoration:none;padding-top:12px;
+  }
+
+  .cta-btn{
+    display:block;width:100%;background:linear-gradient(90deg,var(--fucsia),#ff2d7a);
+    color:#fff;text-align:center;font-size:17px;font-weight:800;border:none;
+    border-radius:14px;padding:16px;margin:14px 0 6px;cursor:pointer;
+    box-shadow:0 6px 18px rgba(224,19,108,.35);
+    text-decoration:none;box-sizing:border-box;
+  }
+  .cta-btn:visited{color:#fff;}
+  .cta-sub{text-align:center;font-size:12px;color:var(--texto-suave);}
+
+  .timer-box{
+    display:flex;justify-content:center;gap:10px;margin:16px 0;
+  }
+  .timer-box div{
+    background:var(--morado);color:#fff;border-radius:10px;padding:8px 14px;text-align:center;min-width:56px;
+  }
+  .timer-box span{display:block;font-size:20px;font-weight:800;}
+  .timer-box small{font-size:10px;opacity:.85;}
+
+  /* garantia */
+  .garantia{
+    background:#eefaf3;border:1.5px solid #b7e6cb;border-radius:16px;padding:20px;margin:24px 0;
+  }
+  .garantia h3{color:#0f7a45;font-size:16px;margin-bottom:8px;font-weight:800;}
+  .garantia p{font-size:14px;color:var(--texto);margin-bottom:8px;}
+  .garantia p.destacado{font-weight:700;color:#0f7a45;}
+
+  /* bonos */
+  .bono-list{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px;}
+  .bono{
+    display:flex;align-items:center;gap:12px;background:var(--rosa-suave);
+    border-radius:12px;padding:10px 14px;
+  }
+  .bono .num{
+    background:var(--fucsia);color:#fff;min-width:28px;height:28px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;
+  }
+  .bono p{font-size:13.5px;}
+  .bono b{color:var(--morado);}
+
+  /* testimonios */
+  .testi-card{
+    background:#fff;border:1px solid var(--borde);border-radius:14px;padding:16px;margin-bottom:12px;
+  }
+  .testi-card .estrellas{color:#f5a623;font-size:14px;margin-bottom:6px;}
+  .testi-card p{font-size:13.5px;color:var(--texto);}
+  .testi-card .nombre{margin-top:8px;font-size:12.5px;font-weight:700;color:var(--morado);}
+
+  /* faq */
+  .faq-item{border-bottom:1px solid var(--borde);padding:14px 0;}
+  .faq-item h4{font-size:14.5px;color:var(--fucsia);margin-bottom:6px;font-weight:700;}
+  .faq-item p{font-size:13.5px;color:var(--texto-suave);}
+
+  .faq-eyebrow{text-align:center;font-size:11.5px;font-weight:800;color:var(--fucsia);letter-spacing:1px;margin-bottom:4px;}
+
+  /* acordeón real con <details>/<summary>: la respuesta SIEMPRE está en el HTML fuente,
+     solo se oculta visualmente hasta el clic — nunca se inyecta por JS. Esto es la corrección
+     directa del hallazgo técnico: en el original, una auditoría de DOM mostró que estos
+     acordeones podían no traer la respuesta cargada, justo en la sección donde más importa. */
+  .faq-acc{
+    background:#fff;border-radius:12px;margin-bottom:10px;border:1px solid var(--borde);overflow:hidden;
+  }
+  .faq-acc summary{
+    list-style:none;cursor:pointer;padding:14px 16px;font-size:14px;font-weight:700;color:var(--texto);
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+  }
+  .faq-acc summary::-webkit-details-marker{display:none;}
+  .faq-acc summary::after{
+    content:'+';color:var(--fucsia);font-size:20px;font-weight:800;flex-shrink:0;transition:transform .2s;
+  }
+  .faq-acc[open] summary::after{transform:rotate(45deg);}
+  .faq-acc .faq-respuesta{padding:0 16px 16px;font-size:13.5px;color:var(--texto-suave);}
+
+  /* reseñas completas */
+  .resenas-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;}
+  .resenas-rating{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;}
+  .resenas-rating .estrellas{color:#f5a623;font-size:16px;}
+  .resenas-tabs{display:flex;gap:8px;font-size:12.5px;margin-bottom:16px;}
+  .resenas-tabs span{background:#fff;border:1px solid var(--borde);border-radius:8px;padding:5px 10px;color:var(--texto-suave);}
+  .resenas-tabs span b{color:var(--texto);}
+
+  .resumen-ia{
+    background:var(--morado-suave);border-radius:12px;padding:16px;margin-bottom:20px;
+  }
+  .resumen-ia h4{font-size:14px;color:var(--morado);margin-bottom:6px;}
+  .resumen-ia p{font-size:13px;color:var(--texto);margin-bottom:8px;}
+  .resumen-ia .tag-ia{font-size:11px;color:var(--texto-suave);}
+
+  .resena-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .resena-card{background:#fff;border:1px solid var(--borde);border-radius:12px;overflow:hidden;}
+  .resena-card .foto-ph{border-radius:0;min-height:110px;font-size:10.5px;padding:8px;}
+  .resena-card .cuerpo{padding:10px 12px;}
+  .resena-card .nombre-fila{display:flex;align-items:center;gap:4px;font-size:12px;font-weight:700;margin-bottom:2px;}
+  .resena-card .verif{color:var(--verde);font-size:11px;}
+  .resena-card .estrellas{color:#f5a623;font-size:12px;margin-bottom:4px;}
+  .resena-card p{font-size:11.5px;color:var(--texto);line-height:1.4;}
+  .resena-card mark{background:#ffe9a8;color:var(--texto);padding:0 2px;}
+  .resena-card.negativa{border-color:#e8b4b4;}
+  .resena-card.negativa .estrellas{color:#d98c8c;}
+
+  footer{
+    background:var(--morado);color:#fff;text-align:center;padding:26px 20px;font-size:12.5px;
+  }
+  footer p{opacity:.85;margin-top:6px;}
+
+  .nota-tecnica{
+    background:#fffbe6;border:1px solid #f0dd8a;border-radius:10px;
+    padding:10px 14px;font-size:11.5px;color:#7a6300;margin:0 22px 18px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- SECCIÓN 1 — Barra superior -->
+  <!-- Opción control (activa): día real calculado por JS, cápsula fucsia. Usar si vas a testear urgencia de "hoy". -->
+  <div class="topbar" id="topbar-control">
+    🔥 HOY <span class="cap" id="dia-hoy">MARTES</span> ÚLTIMO DÍA CON DESCUENTO <span class="sep">•</span> ⚡ ACCESO INMEDIATO DESPUÉS DE TU COMPRA
+  </div>
+  <!-- Opción evergreen (alternativa, sin urgencia de fecha): descomentar esta línea y comentar la de arriba para usarla.
+  <div class="topbar">
+    🧶 <span class="cap">ACCESO INMEDIATO</span> <span class="sep">•</span> PAGO ÚNICO <span class="sep">•</span> ACTUALIZACIONES INCLUIDAS
+  </div>
+  -->
+  <p style="text-align:center;font-size:10.5px;color:var(--texto-suave);padding:4px 10px 0;">
+    Nota: la opción control repite el patrón "hoy es el último día" del original — funciona para tráfico frío de un solo clic, pero pierde credibilidad si la misma visitante vuelve mañana y ve el mismo mensaje. La evergreen es más honesta y sostenible si esperás visitas repetidas o remarketing.
+  </p>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="pill-row">
+      <div class="pill">🧶 +10.000 patrones</div>
+      <div class="pill">🎥 cursos en video</div>
+      <div class="pill">📥 100% descargable</div>
+    </div>
+    <h1>No te falta talento para tejer.
+      <span class="sub">Te falta un lugar que no te haga perder el hilo.</span>
+    </h1>
+    <p class="claim">El sistema que organiza todo lo que necesitás para terminar tu primera pieza — sin traducir patrones, sin adivinar puntos, sin quince pestañas abiertas.</p>
+    <div class="foto-ph" style="min-height:200px;">
+      <span>📸</span>
+      Foto real: mesa de trabajo con piezas terminadas (bolso, amigurumi, cárdigan)<span class="editable">reemplazar</span>
+    </div>
+  </div>
+
+  <div class="nota-tecnica">
+    Nota de producción: esta landing está pensada para exportarse por bloques (Canva/Figma) como imágenes .webp, igual que el modelo original — dejá el precio, el timer, la garantía y el FAQ como texto real (HTML), nunca como imagen, para que Google los lea y para que el checkout pueda actualizarlos.
+  </div>
+
+  <!-- DOLORES -->
+  <section>
+    <h2 class="tit">Esto es para vos si…</h2>
+    <p class="subtit">(y si te identificás con más de dos, seguí leyendo)</p>
+
+    <div class="dolor"><div class="x">✕</div><p>Buscaste "patrón de crochet fácil" y terminaste con quince pestañas abiertas y ninguna clara.</p></div>
+    <div class="dolor"><div class="x">✕</div><p>Empezaste una pieza con un patrón mal traducido y la abandonaste a mitad de camino.</p></div>
+    <div class="dolor"><div class="x">✕</div><p>Sabés tejer, pero se te acaban las ideas después del tercer proyecto.</p></div>
+    <div class="dolor"><div class="x">✕</div><p>Tus piezas nunca quedan como en la foto que las inspiró.</p></div>
+    <div class="dolor"><div class="x">✕</div><p>Ya gastaste plata en hilo y ganchillo, y no querés que se sume a la pila de intentos a medias.</p></div>
+
+    <div class="reframe">
+      <p>No es que te falten manos para tejer. Es que aprendiste con material armado para alguien que ya sabía.</p>
+      <p class="small">El problema no es tu destreza. Es dónde estás buscando.</p>
+    </div>
+  </section>
+
+  <!-- QUE INCLUYE -->
+  <section style="background:var(--rosa-suave);">
+    <h2 class="tit">Qué incluye</h2>
+    <p class="subtit">Todo organizado por lo que realmente querés tejer, no por etiquetas vacías</p>
+    <div class="cat-grid">
+      <div class="foto-ph"><span>👗</span>Ropa</div>
+      <div class="foto-ph"><span>👜</span>Bolsos</div>
+      <div class="foto-ph"><span>🧸</span>Amigurumis</div>
+      <div class="foto-ph"><span>🍼</span>Ropa bebé</div>
+      <div class="foto-ph"><span>🧣</span>Mantas</div>
+      <div class="foto-ph"><span>🔑</span>Llaveros</div>
+    </div>
+  </section>
+
+  <!-- MECANISMO -->
+  <section>
+    <div class="mecanismo">
+      <span class="badge">EL MÉTODO</span>
+      <h3>Sistema "Sin Vueltas Perdidas"</h3>
+      <p>"Vuelta" es una palabra que ya conocés si tejiste alguna vez: es cada fila que das con el ganchillo. Acá la usamos doble sentido: ninguna vuelta de más, ni tejiendo, ni buscando.</p>
+      <p>En vez de un curso genérico "lección 1 de 40", empezás eligiendo qué querés tejer hoy. El sistema te lleva directo al patrón correcto, con el video que muestra el punto exacto en el momento exacto — sin adivinar qué quiso decir una instrucción a medio traducir.</p>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section style="background:var(--rosa-suave);">
+    <h2 class="tit">Qué vas a lograr</h2>
+    <div style="margin-top:18px;">
+      <div class="beneficio"><div class="check">✓</div><p><b>Vas a empezar</b> aunque hoy no sepas ni sostener el ganchillo — el sistema arranca desde cero, no desde "ya deberías saber esto".</p></div>
+      <div class="beneficio"><div class="check">✓</div><p><b>Vas a dejar de perder tiempo</b> buscando en internet: todo está organizado en un solo lugar.</p></div>
+      <div class="beneficio"><div class="check">✓</div><p><b>Vas a entender cada patrón</b>, sin traducir a mano ni adivinar abreviaciones.</p></div>
+      <div class="beneficio"><div class="check">✓</div><p><b>Vas a tener variedad real</b> para no quedarte sin ideas después del tercer proyecto.</p></div>
+      <div class="beneficio"><div class="check">✓</div><p><b>Vas a terminar</b> lo que empezás — con confianza, no a ciegas.</p></div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section>
+    <h2 class="tit">Llevate el Sistema completo hoy</h2>
+    <div class="oferta">
+
+      <!-- Complemento de la caja del producto: ficha transaccional, tono de checkout -->
+      <div class="producto-mini">SISTEMA <b>Sin Vueltas Perdidas™</b></div>
+      <p class="producto-desc">+10.000 Patrones + Cursos en Video + 20 Recursos 🎁</p>
+
+      <div class="precio-row">
+        <div class="precio-tachado">$147 USD <span class="editable">ejemplo ~10:1, ajustar a tu costo real</span></div>
+        <div class="precio-final">$15 <small>USD</small></div>
+      </div>
+
+      <!-- Un solo mecanismo de urgencia (el más sofisticado: reserva personal, no un badge de cupos genérico) -->
+      <div class="reserva-card">
+        <div class="reserva-pill"><span class="dot"></span> tu lugar está reservado</div>
+        <p class="reserva-dia-label">Este precio se sostiene hasta el cierre de</p>
+        <div class="reserva-dia" id="dia-hoy-2">MARTES</div>
+        <div class="timer-box">
+          <div><span id="hh">--</span><small>HRS</small></div>
+          <div><span id="mm">--</span><small>MIN</small></div>
+          <div><span id="ss">--</span><small>SEG</small></div>
+        </div>
+        <p class="reserva-texto">Pasado este plazo, el precio vuelve a $37 USD <span class="editable">fecha real de cierre, no un timer que se reinicia solo</span>. Si no accedés, el cupo pasa a la siguiente persona en espera.</p>
+      </div>
+
+      <p class="cupos-nota">
+        Nota de honestidad: no usamos un contador de "personas viendo esto ahora" — se descubrió que ese tipo de widget suele ser un número decorativo, no tráfico real. Si vas a limitar cupos, que sea por algo verdadero: acá los cupos limitan la <b>capacidad real de soporte personal</b> de la garantía (ver abajo), no el PDF en sí. <span class="editable">completar con tu capacidad real por semana</span>
+      </p>
+
+      <a href="https://TU-CHECKOUT-AQUI.com" class="cta-btn" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
+      <p class="cta-sub">Pago único · sin suscripción · acceso inmediato por correo</p>
+
+      <div class="pago-icons">
+        <span>Mastercard</span><span>Visa</span><span>Apple Pay</span><span>Google Pay</span><span>Webpay</span>
+      </div>
+
+      <!-- Desglose detallado: aparece más abajo en el original real, se mantiene acá para no fragmentar el archivo -->
+      <table class="stack-tabla" style="margin-top:24px;">
+        <tr><td>🎒 Curso de Bolsos de Trapillo <span class="editable">insignia</span></td><td>$47</td></tr>
+        <tr><td>📖 Biblioteca de +10.000 patrones</td><td>$37</td></tr>
+        <tr><td>🧶 Curso de Crochet para Principiantes</td><td>$27</td></tr>
+        <tr><td>🎁 5 bonos ancla + 15 recursos más</td><td>$36</td></tr>
+        <tr class="total"><td>Valor total</td><td>$147</td></tr>
+      </table>
+      <p class="cta-sub" style="margin-top:10px;">Ahorrás $132 USD · Hoy pagás solo $15 USD <span class="editable">valores de ejemplo, ratio ~10:1 estilo Hormozi — reemplazar por tus costos reales</span></p>
+
+      <div class="garantia" style="margin-top:20px;background:#eefaf3;">
+        <h3 style="font-size:14px;">🛡️ Garantía real, ahora también acá</h3>
+        <p style="font-size:13px;">Justo después de ver el precio es cuando más importa: si algo no te queda claro, te lo resolvemos o te devolvemos tu plata.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GARANTIA -->
+  <section style="padding-top:6px;">
+    <div class="garantia">
+      <h3>🛡️ Garantía real, no una frase suelta</h3>
+      <p>Si entrás, buscás el patrón que necesitás y no lo encontrás claro, no te vamos a decir "no aplica por ser producto digital".</p>
+      <p class="destacado">Te lo resolvemos directamente o te devolvemos tu plata. Así de simple.</p>
+      <p style="font-size:12px;color:var(--texto-suave);">*Ajustar el proceso exacto de devolución a lo que el negocio pueda sostener antes de publicar — la promesa tiene que ser 100% cumplible.</p>
+    </div>
+  </section>
+
+  <!-- BONOS -->
+  <section style="background:var(--rosa-suave);">
+    <h2 class="tit">Bonos incluidos</h2>
+    <p class="subtit">Cada uno resuelve una excusa puntual, no está de relleno</p>
+    <div class="bono-list">
+      <div class="bono"><div class="num">1</div><p><b>Guía de puntos esenciales</b> — para no frenar en la primera fila.</p></div>
+      <div class="bono"><div class="num">2</div><p><b>Calculadora de hilos y materiales</b> — para no comprar de más ni de menos.</p></div>
+      <div class="bono"><div class="num">3</div><p><b>Tabla de medidas y tallas</b> — para que la ropa que tejas quede como se ve en la foto.</p></div>
+      <div class="bono"><div class="num">4</div><p><b>Cómo calcular el precio de lo que tejés</b> — por si en algún momento querés vender.</p></div>
+      <div class="bono"><div class="num">5</div><p><b>Planificador de proyectos</b> — para que nunca falten ideas para el próximo.</p></div>
+    </div>
+  </section>
+
+  <!-- RECAP DE VALOR + CTA INTERMEDIO -->
+  <!-- Corresponde al banner "Mega Pack: todo lo que necesitas" + botón verde que sigue en el original real.
+       El recap va como imagen (banner de diseño), el botón va como HTML real — mismo patrón técnico
+       que el resto de la landing: persuasión en gráfico, acción transaccional en código. -->
+  <section style="text-align:center;">
+    <h2 class="tit">Mega Pack: lo que tenés después de hoy</h2>
+    <div class="foto-ph" style="min-height:220px;">
+      <span>📸</span>
+      Recap compacto: mini caja del producto + las dos tarjetas de curso — Bolsos de Trapillo grande/insignia con badge "el más pedido", Crochet para Principiantes chica <span class="editable">reemplazar</span>
+    </div>
+    <p class="cta-sub" style="margin:10px 0 18px;">+ 20 recursos más — para que nunca te falte una excusa resuelta.</p>
+
+    <!-- CTA intermedio: segundo cierre para quien ya decidió, antes de que baje a la tabla de precio detallada -->
+    <a href="https://TU-CHECKOUT-AQUI.com" class="cta-btn" target="_blank" rel="noopener">🛒 Quiero el Sistema Sin Vueltas Perdidas</a>
+    <p class="cta-sub">Mismo botón, mismo color que el de la sección de precio — la repetición del mismo verde ayuda a que se reconozca de inmediato como "acá se compra", sin tener que pensarlo de nuevo.</p>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <!-- Espacio reservado, va después del desglose de precio + bonos + CTA intermedio, antes del FAQ —
+       mismo lugar que ocupa en la página original. No completar con reseñas inventadas: en el análisis
+       de la página original detectamos que el mix real (algunas 5 estrellas, alguna imperfecta) genera
+       más confianza que un muro 100% perfecto — dejá al menos un testimonio con matiz real cuando tengas
+       casos verificados, no solo los más lindos. -->
+  <section>
+    <h2 class="tit">Lo que dicen quienes ya lo usan</h2>
+    <p class="subtit">Espacio para testimonios reales — no se completa hasta tener casos verificados</p>
+    <div class="testi-card">
+      <div class="estrellas">★★★★★</div>
+      <p>[Testimonio real con foto del resultado terminado — completar cuando existan clientas verificadas]</p>
+      <div class="nombre">[Nombre] · Compra verificada <span class="editable">completar</span></div>
+    </div>
+    <div class="testi-card">
+      <div class="estrellas">★★★★★</div>
+      <p>[Testimonio real con foto del resultado terminado]</p>
+      <div class="nombre">[Nombre] · Compra verificada <span class="editable">completar</span></div>
+    </div>
+    <div class="testi-card" style="border-style:dashed;">
+      <div class="estrellas">★★★★☆</div>
+      <p>[Reservá este tercer espacio para un testimonio real con algún matiz, no solo perfecto — le da más credibilidad al conjunto que tres reseñas idénticamente ideales]</p>
+      <div class="nombre">[Nombre] · Compra verificada <span class="editable">completar</span></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <!-- Orden calcado del original: logística concreta primero (qué/para quién/cómo), seguridad
+       financiera en el medio (pago único/de por vida/actualizaciones), y cierra con la pregunta
+       más aspiracional (vender lo que tejés) en vez de la más defensiva — cierre emocional alto,
+       no un cierre burocrático. -->
+  <section style="background:var(--rosa-suave);">
+    <p class="faq-eyebrow">LO MÁS PREGUNTADO</p>
+    <h2 class="tit">Preguntas frecuentes</h2>
+    <p class="subtit">Resolvemos tus dudas antes de comprar — no después.</p>
+
+    <div style="margin-top:10px;">
+      <details class="faq-acc" open>
+        <summary>¿Qué incluye exactamente el Sistema Sin Vueltas Perdidas?</summary>
+        <p class="faq-respuesta">Más de 10.000 patrones organizados por lo que vos querés tejer, el curso insignia de Bolsos de Trapillo, el curso de Crochet para Principiantes, y los 20 recursos que resuelven las excusas más comunes para no empezar.</p>
+      </details>
+      <details class="faq-acc">
+        <summary>¿Sirve si nunca tejí?</summary>
+        <p class="faq-respuesta">Sí — de hecho está pensado primero para vos. El curso guiado arranca antes de lo básico, no asume que ya sabés nada.</p>
+      </details>
+      <details class="faq-acc">
+        <summary>¿Cómo recibo el producto después de comprar?</summary>
+        <p class="faq-respuesta">Acceso inmediato por correo electrónico después del pago. Entrás desde el celular, tablet o computadora, para siempre — sin esperar envíos.</p>
+      </details>
+      <details class="faq-acc">
+        <summary>¿Es pago único o suscripción?</summary>
+        <p class="faq-respuesta">Pago único. Sin suscripción, sin cobros al mes siguiente.</p>
+      </details>
+      <details class="faq-acc">
+        <summary>¿Tendré acceso de por vida?</summary>
+        <p class="faq-respuesta">Sí. Una vez que entrás, es tuyo para siempre, sin fechas ni límites.</p>
+      </details>
+      <details class="faq-acc">
+        <summary>¿Incluye actualizaciones?</summary>
+        <p class="faq-respuesta">Sí, sin costo extra. Esto no se queda estático — se actualiza solo, sin que vuelvas a pagar.</p>
+      </details>
+      <details class="faq-acc">
+        <summary>¿Puedo vender las piezas que haga?</summary>
+        <p class="faq-respuesta">Sí. Y por eso está el bono de cómo calcular precios — para el día que te pregunten "¿esto lo vendés?" y no te agarre sin saber qué responder.</p>
+      </details>
+    </div>
+    <p style="font-size:11px;color:var(--texto-suave);text-align:center;margin-top:14px;">
+      Nota técnica: se usa &lt;details&gt;/&lt;summary&gt; nativo de HTML — la respuesta siempre está en el código fuente, solo se oculta visualmente hasta el clic. Nunca se carga por JS al momento de abrir. Esto corrige el hallazgo real del análisis original: una auditoría de DOM mostró que esos acordeones podían no traer la respuesta cargada, justo en la sección donde más importa antes de pagar.
+    </p>
+  </section>
+
+  <!-- RESEÑAS COMPLETAS -->
+  <!-- Va después del FAQ, es el último bloque de prueba social antes del cierre — mismo lugar que
+       ocupa en la página original. Todo el contenido acá es plantilla: no se completa con reseñas,
+       nombres, fotos ni un resumen de IA inventados. Este widget solo tiene sentido con datos reales
+       (Loox, Judge.me, Yotpo o similar conectado a la tienda real) — la estructura queda lista para
+       cuando eso exista. -->
+  <section>
+    <div class="resenas-top">
+      <div class="resenas-rating"><span class="estrellas">★★★★★</span> [N] Reseñas <span class="editable">conectar app de reseñas real</span></div>
+      <span style="font-size:12px;color:var(--texto-suave);cursor:pointer;">Escriba una reseña</span>
+    </div>
+    <div class="resenas-tabs">
+      <span>Reseñas del producto <b>[N]</b></span>
+      <span>Reseñas de la tienda <b>[N]</b></span>
+    </div>
+
+    <div class="resumen-ia">
+      <h4>Resumen de reseñas</h4>
+      <p>[No generar este resumen a mano ni inventarlo — un resumen de IA solo es honesto si de verdad se generó a partir de reseñas reales existentes. Dejar vacío hasta tener volumen real de reseñas para resumir.]</p>
+      <p class="tag-ia">✦ Resumido por IA <span class="editable">solo si es real</span></p>
+    </div>
+
+    <div class="resena-grid">
+      <div class="resena-card">
+        <div class="foto-ph"><span>📸</span>Foto real del proyecto terminado</div>
+        <div class="cuerpo">
+          <div class="nombre-fila">[Nombre] <span class="verif">✔ Verificada</span></div>
+          <div class="estrellas">★★★★★</div>
+          <p>[Reseña real — la frase más útil de cada reseña se puede resaltar con &lt;mark&gt;, pero solo si son palabras textuales de la clienta, nunca inventadas]</p>
+        </div>
+      </div>
+      <div class="resena-card">
+        <div class="foto-ph"><span>📸</span>Foto real del proyecto terminado</div>
+        <div class="cuerpo">
+          <div class="nombre-fila">[Nombre] <span class="verif">✔ Verificada</span></div>
+          <div class="estrellas">★★★★★</div>
+          <p>[Reseña real]</p>
+        </div>
+      </div>
+      <div class="resena-card">
+        <div class="foto-ph"><span>📸</span>Foto real del proyecto terminado</div>
+        <div class="cuerpo">
+          <div class="nombre-fila">[Nombre] <span class="verif">✔ Verificada</span></div>
+          <div class="estrellas">★★★★★</div>
+          <p>[Reseña real, idealmente una con un matiz genuino — "me costó al principio, pero..." — no solo elogio perfecto]</p>
+        </div>
+      </div>
+      <div class="resena-card negativa">
+        <div class="foto-ph"><span>📸</span>Foto real del proyecto terminado</div>
+        <div class="cuerpo">
+          <div class="nombre-fila">[Nombre] <span class="verif">✔ Verificada</span></div>
+          <div class="estrellas">★★★☆☆</div>
+          <p>[Espacio reservado para una reseña real y honesta, no perfecta — no ocultar las críticas reales cuando existan; mostrar el mix completo es lo que le da credibilidad al conjunto]</p>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:11px;color:var(--texto-suave);text-align:center;margin-top:16px;">
+      Nota: no completar esta sección hasta tener una app de reseñas real conectada (Loox, Judge.me, Yotpo, reseñas nativas de Shopify). Un widget de reseñas falso es el tipo de cosa que, si se descubre, hace más daño a la confianza que no tener reseñas todavía.
+    </p>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section style="text-align:center;">
+    <h2 class="tit">Podés seguir buscando gratis…</h2>
+    <p class="subtit" style="max-width:420px;margin-left:auto;margin-right:auto;">
+      o dejar de perder vueltas — las del ganchillo y las de las quince pestañas — y tener todo en un solo lugar, explicado para que realmente termines lo que empezás.
+    </p>
+    <a href="https://TU-CHECKOUT-AQUI.com" class="cta-btn" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
+  </section>
+
+  <footer>
+    <p style="font-weight:800;font-size:14px;">Sistema Sin Vueltas Perdidas™</p>
+    <p>Plantilla de landing modelada — completá los campos marcados <span class="editable" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.4);color:#fff;">editar</span> antes de publicar.</p>
+  </footer>
+
+</div>
+
+<script>
+  // Día real en español para la cápsula de la barra superior (opción control).
+  var dias = ['DOMINGO','LUNES','MARTES','MIÉRCOLES','JUEVES','VIERNES','SÁBADO'];
+  var elDia = document.getElementById('dia-hoy');
+  if(elDia){ elDia.textContent = dias[new Date().getDay()]; }
+  var elDia2 = document.getElementById('dia-hoy-2');
+  if(elDia2){ elDia2.textContent = dias[new Date().getDay()]; }
+
+  // Timer de ejemplo: cuenta regresiva de 48 horas desde que se carga la página.
+  // Ajustar a una fecha de cierre real antes de publicar — no dejarlo circular indefinidamente.
+  var fin = new Date().getTime() + (48*60*60*1000);
+  function actualizar(){
+    var ahora = new Date().getTime();
+    var dist = fin - ahora;
+    if(dist < 0){ dist = 0; }
+    var h = Math.floor(dist/(1000*60*60));
+    var m = Math.floor((dist%(1000*60*60))/(1000*60));
+    var s = Math.floor((dist%(1000*60))/1000);
+    document.getElementById('hh').textContent = String(h).padStart(2,'0');
+    document.getElementById('mm').textContent = String(m).padStart(2,'0');
+    document.getElementById('ss').textContent = String(s).padStart(2,'0');
+  }
+  actualizar();
+  setInterval(actualizar, 1000);
+</script>
+
+</body>
+</html>
