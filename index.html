@@ -97,7 +97,15 @@
     letter-spacing:.3px;
     text-shadow:1.5px 1.5px 0 #fff,-1.5px -1.5px 0 #fff,1.5px -1.5px 0 #fff,-1.5px 1.5px 0 #fff,0 3px 6px rgba(224,19,108,.22);
   }
-  p.subtit{text-align:center;color:var(--texto-suave);font-size:14px;margin-bottom:22px;}
+  p.subtit{text-align:center;color:var(--texto-suave);font-size:14px;margin-bottom:0;}
+
+  /* Caja para los títulos de sección, mismo lenguaje visual que el resto de la landing */
+  .tit-box{
+    background:linear-gradient(160deg,#fff,var(--rosa-suave));
+    border:1px solid var(--borde);border-radius:20px;
+    padding:20px 18px;box-shadow:0 8px 20px rgba(224,19,108,.10);
+    margin-bottom:22px;
+  }
 
   /* dolores */
   .dolor{
@@ -441,8 +449,10 @@
 
   <!-- TESTIMONIOS / RESEÑAS — un solo carrusel, no dos secciones repitiendo lo mismo -->
   <section style="padding-bottom:10px;">
-    <h2 class="tit">Lo que dicen quienes ya lo usan</h2>
-    <p class="subtit">Deslizá para ver más reseñas →</p>
+    <div class="tit-box">
+      <h2 class="tit">Lo que dicen quienes ya lo usan</h2>
+      <p class="subtit">Deslizá para ver más reseñas →</p>
+    </div>
     <div class="reviews-carousel" id="reviews-carousel">
       <img src="images12-resenas-1.webp" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 1" loading="lazy" decoding="async">
       <img src="images12-resenas-2.webp" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 2" loading="lazy" decoding="async">
@@ -458,9 +468,11 @@
        más aspiracional (vender lo que tejés) en vez de la más defensiva — cierre emocional alto,
        no un cierre burocrático. -->
   <section style="background:var(--rosa-suave);">
-    <p class="faq-eyebrow">LO MÁS PREGUNTADO</p>
-    <h2 class="tit">Preguntas frecuentes</h2>
-    <p class="subtit">Resolvemos tus dudas antes de comprar — no después.</p>
+    <div class="tit-box">
+      <p class="faq-eyebrow">LO MÁS PREGUNTADO</p>
+      <h2 class="tit">Preguntas frecuentes</h2>
+      <p class="subtit">Resolvemos tus dudas antes de comprar — no después.</p>
+    </div>
 
     <div style="margin-top:10px;">
       <details class="faq-acc" open>
@@ -496,10 +508,12 @@
 
   <!-- CTA FINAL -->
   <section style="text-align:center;">
-    <h2 class="tit">Podés seguir buscando gratis…</h2>
-    <p class="subtit" style="max-width:420px;margin-left:auto;margin-right:auto;">
-      o dejar de perder vueltas — las del ganchillo y las de las quince pestañas — y tener todo en un solo lugar, explicado para que realmente termines lo que empezás.
-    </p>
+    <div class="tit-box">
+      <h2 class="tit">Podés seguir buscando gratis…</h2>
+      <p class="subtit" style="max-width:420px;margin-left:auto;margin-right:auto;">
+        o dejar de perder vueltas — las del ganchillo y las de las quince pestañas — y tener todo en un solo lugar, explicado para que realmente termines lo que empezás.
+      </p>
+    </div>
     <a href="https://TU-CHECKOUT-AQUI.com" class="cta-btn" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
   </section>
 
