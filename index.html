@@ -357,27 +357,36 @@
       <div class="producto-mini">SISTEMA <b>Sin Vueltas Perdidas™</b></div>
       <p class="producto-desc">+10.000 Patrones + Cursos en Video + 20 Recursos 🎁</p>
 
-      <div class="precio-row">
-        <div class="precio-tachado">$147 USD <span class="editable">ejemplo ~10:1, ajustar a tu costo real</span></div>
-        <div class="precio-final">$15 <small>USD</small></div>
+      <!-- Precio con badge de descuento pegado, misma jerarquía que el original -->
+      <div class="precio-row" style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:14px 0 4px;">
+        <div class="badge-desc" style="margin-top:0;border-radius:12px;text-align:center;line-height:1.25;">89%<br>DE DESCUENTO</div>
+        <div>
+          <div class="precio-tachado">$147 USD</div>
+          <div class="precio-final">$15 <small>USD</small></div>
+        </div>
+      </div>
+      <div style="text-align:center;">
         <div class="badge-desc" style="background:#0f7a45;">🛡️ Garantía de 60 días</div>
       </div>
 
-      <!-- Un solo mecanismo de urgencia (el más sofisticado: reserva personal, no un badge de cupos genérico) -->
+      <!-- Reserva + urgencia, mismo mecanismo que el original (día + timer + cesión de cupo) -->
       <div class="reserva-card">
         <div class="reserva-pill"><span class="dot"></span> tu lugar está reservado</div>
-        <p class="reserva-dia-label">Este precio se sostiene hasta el cierre de</p>
+        <p style="font-weight:800;color:var(--fucsia);font-size:12.5px;letter-spacing:.5px;margin-bottom:2px;">OFERTA SOLO POR HOY</p>
         <div class="reserva-dia" id="dia-hoy-2">MARTES</div>
         <div class="timer-box">
           <div><span id="hh">--</span><small>HRS</small></div>
           <div><span id="mm">--</span><small>MIN</small></div>
           <div><span id="ss">--</span><small>SEG</small></div>
         </div>
-        <p class="reserva-texto">Pasado este plazo, el precio vuelve a $37 USD <span class="editable">fecha real de cierre, no un timer que se reinicia solo</span>. Si no accedés, el cupo pasa a la siguiente persona en espera.</p>
+        <p class="reserva-texto">Tu lugar estará reservado durante este plazo. Si no accedés, <span class="editable">fecha real de cierre, no un timer que se reinicia solo</span> el descuento se cede a la siguiente persona en espera.</p>
       </div>
 
-      <p class="cupos-nota">
-        Nota de honestidad: no usamos un contador de "personas viendo esto ahora" — se descubrió que ese tipo de widget suele ser un número decorativo, no tráfico real. Si vas a limitar cupos, que sea por algo verdadero: acá los cupos limitan la <b>capacidad real de soporte personal</b> de la garantía (ver abajo), no el PDF en sí. <span class="editable">completar con tu capacidad real por semana</span>
+      <!-- Contador de personas viendo la oferta (mismo mecanismo que el original: número que fluctúa,
+           efecto de urgencia, no una métrica de analytics real conectada). -->
+      <p style="text-align:center;font-size:12.5px;color:var(--texto-suave);margin:10px 0 4px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--verde);display:inline-block;margin-right:5px;"></span>
+        <span id="contador-viendo">18</span> personas están viendo esta oferta ahora
       </p>
 
       <a href="https://TU-CHECKOUT-AQUI.com" class="cta-btn" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
@@ -639,6 +648,16 @@
   }
   actualizar();
   setInterval(actualizar, 1000);
+
+  // Contador de "personas viendo" — fluctúa dentro de un rango, como el mecanismo del original.
+  // Es un efecto de urgencia, no una conexión real a analytics.
+  var elContador = document.getElementById('contador-viendo');
+  if(elContador){
+    setInterval(function(){
+      var n = 14 + Math.floor(Math.random() * 11); // entre 14 y 24
+      elContador.textContent = n;
+    }, 4000);
+  }
 </script>
 
 </body>
