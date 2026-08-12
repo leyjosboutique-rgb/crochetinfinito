@@ -140,14 +140,21 @@
   .beneficio b{color:var(--fucsia);}
   .beneficio p{font-size:14.5px;}
 
-  /* producto mini (encabezado transaccional, tono de ficha de producto) */
-  .producto-mini{font-size:13px;color:var(--texto-suave);font-weight:700;letter-spacing:.3px;}
+  /* producto mini (ahora es el titular llamativo de la oferta, no una etiqueta chica) */
+  .producto-mini{
+    font-family:'Baloo 2','Nunito',sans-serif;
+    font-size:24px;color:var(--fucsia);font-weight:800;letter-spacing:.2px;
+    text-align:center;line-height:1.15;
+  }
   .producto-mini b{color:var(--morado);}
-  .producto-desc{font-size:14.5px;color:var(--texto);margin:4px 0 16px;font-weight:600;}
+  .producto-desc{
+    font-size:14.5px;color:var(--morado);margin:6px 0 16px;font-weight:700;text-align:center;
+  }
 
   /* tarjeta de reserva — un solo mecanismo de urgencia, no tres apilados */
   .reserva-card{
-    background:var(--rosa-suave);border-radius:16px;padding:18px 16px;margin:16px 0;text-align:center;
+    background:var(--rosa-suave);border-radius:22px;padding:20px 16px;margin:16px 0;text-align:center;
+    box-shadow:inset 0 0 0 1px rgba(255,92,138,.25);
   }
   .reserva-pill{
     display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--borde);
@@ -174,7 +181,9 @@
   /* oferta */
   .oferta{
     background:linear-gradient(160deg,#fff,var(--rosa-suave));
-    border:2px solid var(--rosa);border-radius:20px;padding:24px 20px;margin:10px 0;
+    border:2px solid var(--rosa);border-radius:26px;padding:26px 20px;margin:10px 0;
+    box-shadow:0 10px 26px rgba(224,19,108,.14);
+    position:relative;
   }
   .precio-row{text-align:center;margin:14px 0;}
   .precio-tachado{font-size:16px;color:var(--texto-suave);text-decoration:line-through;}
@@ -182,7 +191,8 @@
   .precio-final small{font-size:16px;font-weight:700;}
   .badge-desc{
     display:inline-block;background:var(--fucsia);color:#fff;font-size:12px;font-weight:800;
-    padding:5px 14px;border-radius:20px;margin-top:6px;
+    padding:6px 16px;border-radius:20px;margin-top:6px;
+    box-shadow:0 4px 10px rgba(224,19,108,.35);
   }
 
   .stack-tabla{width:100%;border-collapse:collapse;margin:18px 0;font-size:13.5px;}
@@ -196,10 +206,12 @@
   .cta-btn{
     display:block;width:100%;background:linear-gradient(90deg,var(--fucsia),#ff2d7a);
     color:#fff;text-align:center;font-size:17px;font-weight:800;border:none;
-    border-radius:14px;padding:16px;margin:14px 0 6px;cursor:pointer;
-    box-shadow:0 6px 18px rgba(224,19,108,.35);
+    border-radius:18px;padding:17px;margin:14px 0 6px;cursor:pointer;
+    box-shadow:0 8px 20px rgba(224,19,108,.4);
     text-decoration:none;box-sizing:border-box;
+    transition:transform .15s ease;
   }
+  .cta-btn:active{transform:scale(.98);}
   .cta-btn:visited{color:#fff;}
   .cta-sub{text-align:center;font-size:12px;color:var(--texto-suave);}
 
@@ -207,14 +219,16 @@
     display:flex;justify-content:center;gap:10px;margin:16px 0;
   }
   .timer-box div{
-    background:var(--morado);color:#fff;border-radius:10px;padding:8px 14px;text-align:center;min-width:56px;
+    background:var(--morado);color:#fff;border-radius:14px;padding:8px 14px;text-align:center;min-width:56px;
+    box-shadow:0 4px 10px rgba(107,63,160,.35);
   }
   .timer-box span{display:block;font-size:20px;font-weight:800;}
   .timer-box small{font-size:10px;opacity:.85;}
 
   /* garantia */
   .garantia{
-    background:#eefaf3;border:1.5px solid #b7e6cb;border-radius:16px;padding:20px;margin:24px 0;
+    background:#eefaf3;border:1.5px solid #b7e6cb;border-radius:22px;padding:20px;margin:24px 0;
+    box-shadow:0 8px 20px rgba(15,122,69,.12);
   }
   .garantia h3{color:#0f7a45;font-size:16px;margin-bottom:8px;font-weight:800;}
   .garantia p{font-size:14px;color:var(--texto);margin-bottom:8px;}
@@ -345,17 +359,14 @@
 
   <!-- OFERTA -->
   <section>
-    <h2 class="tit">Llevate el Sistema completo hoy</h2>
-
-    <!-- Refuerzo visual del stack de valor (no reemplaza el precio real de abajo, que tiene que
-         seguir siendo texto editable — ver nota técnica del inicio del archivo). -->
-    <img src="images06-stack.webp" alt="Sistema Sin Vueltas Perdidas: +10.000 patrones + cursos + 20 recursos. Curso de Bolsos de Trapillo (el insignia) $47 USD, Biblioteca de +10.000 patrones $37 USD, Curso de Crochet para Principiantes $27 USD, 5 bonos ancla + 15 recursos más $36 USD. Valor total $147 USD, ahorrás $132 USD, hoy pagás solo $15 USD, acceso inmediato" style="width:100%;border-radius:16px;display:block;margin-bottom:16px;">
+    <h2 class="tit">🧶 Llevate el Sistema completo hoy 💗</h2>
 
     <div class="oferta">
 
-      <!-- Complemento de la caja del producto: ficha transaccional, tono de checkout -->
-      <div class="producto-mini">SISTEMA <b>Sin Vueltas Perdidas™</b></div>
-      <p class="producto-desc">+10.000 Patrones + Cursos en Video + 20 Recursos 🎁</p>
+      <!-- Titular llamativo de la oferta, no una ficha genérica -->
+      <div style="text-align:center;font-size:11.5px;font-weight:800;color:var(--morado);letter-spacing:1px;">SISTEMA</div>
+      <div class="producto-mini">Sin Vueltas Perdidas™</div>
+      <p class="producto-desc">🧶 +10.000 Patrones · 🎥 Cursos en Video · 🎁 20 Recursos</p>
 
       <!-- Precio con badge de descuento pegado, misma jerarquía que el original -->
       <div class="precio-row" style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:14px 0 4px;">
@@ -375,11 +386,10 @@
         <p style="font-weight:800;color:var(--fucsia);font-size:12.5px;letter-spacing:.5px;margin-bottom:2px;">OFERTA SOLO POR HOY</p>
         <div class="reserva-dia" id="dia-hoy-2">MARTES</div>
         <div class="timer-box">
-          <div><span id="hh">--</span><small>HRS</small></div>
-          <div><span id="mm">--</span><small>MIN</small></div>
-          <div><span id="ss">--</span><small>SEG</small></div>
+          <div><span id="mm">15</span><small>MIN</small></div>
+          <div><span id="ss">00</span><small>SEG</small></div>
         </div>
-        <p class="reserva-texto">Tu lugar estará reservado durante este plazo. Si no accedés, <span class="editable">fecha real de cierre, no un timer que se reinicia solo</span> el descuento se cede a la siguiente persona en espera.</p>
+        <p class="reserva-texto">Tu lugar estará reservado durante <b>15 minutos</b>. En caso de no acceder, el descuento se cede a la siguiente persona en espera.</p>
       </div>
 
       <!-- Contador de personas viendo la oferta (mismo mecanismo que el original: número que fluctúa,
@@ -404,7 +414,7 @@
         <tr><td>🎁 5 bonos ancla + 15 recursos más</td><td>$36</td></tr>
         <tr class="total"><td>Valor total</td><td>$147</td></tr>
       </table>
-      <p class="cta-sub" style="margin-top:10px;">Ahorrás $132 USD · Hoy pagás solo $15 USD <span class="editable">valores de ejemplo, ratio ~10:1 estilo Hormozi — reemplazar por tus costos reales</span></p>
+      <p class="cta-sub" style="margin-top:10px;">Ahorrás $132 USD · Hoy pagás solo $15 USD</p>
 
       <div class="garantia" style="margin-top:20px;background:#eefaf3;text-align:center;">
         <div style="font-size:34px;line-height:1;">🛡️</div>
@@ -632,19 +642,21 @@
     }, 5000);
   }
 
-  // Timer de ejemplo: cuenta regresiva de 48 horas desde que se carga la página.
-  // Ajustar a una fecha de cierre real antes de publicar — no dejarlo circular indefinidamente.
-  var fin = new Date().getTime() + (48*60*60*1000);
+  // Timer de reserva: cuenta regresiva de 15 minutos desde que se carga la página,
+  // mismo mecanismo que el original ("tu lugar reservado durante 15 minutos").
+  // Ajustar a una lógica de sesión/servidor real antes de publicar si se quiere que sea 100% honesto
+  // (hoy se reinicia cada vez que alguien recarga la página).
+  var fin = new Date().getTime() + (15*60*1000);
   function actualizar(){
     var ahora = new Date().getTime();
     var dist = fin - ahora;
     if(dist < 0){ dist = 0; }
-    var h = Math.floor(dist/(1000*60*60));
-    var m = Math.floor((dist%(1000*60*60))/(1000*60));
+    var m = Math.floor(dist/(1000*60));
     var s = Math.floor((dist%(1000*60))/1000);
-    document.getElementById('hh').textContent = String(h).padStart(2,'0');
-    document.getElementById('mm').textContent = String(m).padStart(2,'0');
-    document.getElementById('ss').textContent = String(s).padStart(2,'0');
+    var elMm = document.getElementById('mm');
+    var elSs = document.getElementById('ss');
+    if(elMm) elMm.textContent = String(m).padStart(2,'0');
+    if(elSs) elSs.textContent = String(s).padStart(2,'0');
   }
   actualizar();
   setInterval(actualizar, 1000);
