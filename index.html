@@ -203,13 +203,18 @@
     text-decoration:none;padding-top:12px;
   }
 
+  @keyframes pulso-cta{
+    0%,100%{transform:scale(1);box-shadow:0 8px 20px rgba(31,174,107,.4);}
+    50%{transform:scale(1.025);box-shadow:0 10px 28px rgba(31,174,107,.6);}
+  }
   .cta-btn{
-    display:block;width:100%;background:linear-gradient(90deg,var(--fucsia),#ff2d7a);
+    display:block;width:100%;background:linear-gradient(90deg,#1fae6b,#2ecc7a);
     color:#fff;text-align:center;font-size:17px;font-weight:800;border:none;
     border-radius:18px;padding:17px;margin:14px 0 6px;cursor:pointer;
-    box-shadow:0 8px 20px rgba(224,19,108,.4);
+    box-shadow:0 8px 20px rgba(31,174,107,.4);
     text-decoration:none;box-sizing:border-box;
     transition:transform .15s ease;
+    animation:pulso-cta 1.8s ease-in-out infinite;
   }
   .cta-btn:active{transform:scale(.98);}
   .cta-btn:visited{color:#fff;}
@@ -427,7 +432,7 @@
        El recap va como imagen (banner de diseño), el botón va como HTML real — mismo patrón técnico
        que el resto de la landing: persuasión en gráfico, acción transaccional en código. -->
   <section style="text-align:center;">
-    <img src="images07-recap2.webp" alt="Mega Pack: lo que tenés después de hoy — complemento visual del recap, curso insignia Bolsos de Trapillo (el más pedido) y curso de Crochet para Principiantes, más 20 recursos adicionales" style="width:100%;border-radius:16px;display:block;">
+    <img src="images06-stack.webp" alt="Mega Pack: lo que tenés después de hoy — Curso de Bolsos de Trapillo (el más pedido) y Curso de Crochet para Principiantes, más 20 recursos más para que nunca te falte una excusa resuelta" style="width:100%;border-radius:16px;display:block;">
     <p class="cta-sub" style="margin:10px 0 18px;">+ 20 recursos más — para que nunca te falte una excusa resuelta.</p>
 
     <!-- CTA intermedio: segundo cierre para quien ya decidió, antes de que baje a la tabla de precio detallada -->
