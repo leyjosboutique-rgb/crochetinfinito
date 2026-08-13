@@ -6,7 +6,12 @@
 <title>Sistema Sin Vueltas Perdidas — Mega Pack Crochet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Carga no-bloqueante: la hoja de Google Fonts se pide con baja prioridad (media="print")
+     y se activa recién cuando termina de llegar, en vez de frenar el primer render de la página.
+     El <noscript> es el respaldo si el navegador tiene JS desactivado. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
 <link rel="preload" as="image" href="images01-hero.webp" fetchpriority="high">
 <style>
   :root{
