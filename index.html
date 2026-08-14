@@ -13,6 +13,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
 <link rel="preload" as="image" href="images01-hero.webp" fetchpriority="high">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1279130367528979');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1279130367528979&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <style>
   :root{
     --rosa:#ff5c8a;
@@ -42,7 +59,6 @@
     font-family:'Baloo 2','Nunito',sans-serif;
   }
   .wrap{max-width:640px;margin:0 auto;background:#fff;}
-
   /* barra superior */
   .topbar{
     background:var(--rosa-clarita);
@@ -70,12 +86,10 @@
     transition:opacity .3s ease, transform .3s ease;
     transform:translateY(0);opacity:1;
   }
-
   /* hero */
   .hero{
     background:radial-gradient(circle at 30% 0%,#fff0f6,var(--rosa-suave) 60%);
   }
-
   /* content-visibility: el navegador no calcula layout/paint de secciones fuera de pantalla
      hasta que están por entrar al viewport — mejora sensible en mobile en páginas largas con
      muchas imágenes apiladas como esta. */
@@ -89,7 +103,6 @@
     text-shadow:1.5px 1.5px 0 #fff,-1.5px -1.5px 0 #fff,1.5px -1.5px 0 #fff,-1.5px 1.5px 0 #fff,0 3px 6px rgba(224,19,108,.22);
   }
   p.subtit{text-align:center;color:var(--texto-suave);font-size:14px;margin-bottom:0;}
-
   /* Caja para los títulos de sección, mismo lenguaje visual que el resto de la landing */
   .tit-box{
     background:linear-gradient(160deg,#fff,var(--rosa-suave));
@@ -97,7 +110,6 @@
     padding:20px 18px;box-shadow:0 8px 20px rgba(224,19,108,.10);
     margin-bottom:22px;
   }
-
   /* tarjeta de reserva — un solo mecanismo de urgencia, no tres apilados */
   .reserva-card{
     background:var(--rosa-suave);border-radius:22px;padding:20px 16px;margin:16px 0;text-align:center;
@@ -124,7 +136,6 @@
     text-align:center;font-size:12.5px;color:var(--texto-suave);margin:10px 0 4px;
   }
   .viendo-nota b{font-family:'Baloo 2','Nunito',sans-serif;color:var(--fucsia);font-weight:800;}
-
   /* oferta */
   .oferta{
     background:linear-gradient(160deg,#fff,var(--rosa-suave));
@@ -132,7 +143,6 @@
     box-shadow:0 10px 26px rgba(224,19,108,.14);
     position:relative;
   }
-
   /* solo anima transform (compositing), no box-shadow, para no forzar repintados en celulares de gama baja */
   @keyframes pulso-cta{
     0%,100%{transform:scale(1);}
@@ -150,7 +160,6 @@
   .cta-btn:active{transform:scale(.98);}
   .cta-btn:visited{color:#fff;}
   .cta-sub{text-align:center;font-size:12px;color:var(--texto-suave);}
-
   .timer-box{
     display:flex;justify-content:center;gap:10px;margin:16px 0;
   }
@@ -160,9 +169,7 @@
   }
   .timer-box span{display:block;font-size:20px;font-weight:800;}
   .timer-box small{font-size:10px;opacity:.85;}
-
   .faq-eyebrow{text-align:center;font-size:11.5px;font-weight:800;color:var(--fucsia);letter-spacing:1px;margin-bottom:4px;}
-
   /* acordeón real con <details>/<summary>: la respuesta SIEMPRE está en el HTML fuente,
      solo se oculta visualmente hasta el clic — nunca se inyecta por JS. Esto es la corrección
      directa del hallazgo técnico: en el original, una auditoría de DOM mostró que estos
@@ -190,7 +197,6 @@
     padding:12px 16px 16px;font-size:13.5px;color:var(--texto-suave);line-height:1.55;
     border-top:1px dashed var(--borde);
   }
-
   /* carrusel de reseñas — scroll horizontal nativo con snap, sin JS */
   .reviews-carousel{
     display:flex;overflow-x:auto;
@@ -201,12 +207,10 @@
     flex:0 0 100%;width:100%;max-width:100%;min-width:0;
     height:auto;display:block;
   }
-
 </style>
 </head>
 <body>
 <div class="wrap">
-
   <!-- SECCIÓN 1 — Barra superior -->
   <!-- Opción control (activa): día real calculado por JS, cápsula fucsia. Usar si vas a testear urgencia de "hoy". -->
   <div class="topbar" id="topbar-control">
@@ -222,27 +226,22 @@
   <div class="hero" style="padding:0;">
     <img src="images01-hero.webp" width="1024" height="1536" alt="Terminá tu primera pieza de crochet sin perderte en el patrón — Sistema Sin Vueltas Perdidas, para cualquier nivel, patrones explicados en español sin traducir, cursos completos en video paso a paso, +10.000 patrones para inspirarte todos los días, Curso de Crochet para Principiantes, Curso de Bolsos de Trapillo (el más pedido)" style="width:100%;height:auto;display:block;" loading="eager" fetchpriority="high" decoding="async">
   </div>
-
   <!-- DOLORES -->
   <section style="padding:0;">
     <img src="images02-dolores.webp" width="1024" height="1536" alt="Este libro es para ti si: quieres tejer pero los tutoriales asumen que ya sabes, encontraste patrones gratis incompletos, perdiste tardes buscando el patrón correcto, no sabías qué tejer después, lo imaginaste de una forma y te quedó de otra, pensás que el crochet es difícil" style="width:100%;height:auto;display:block;" loading="lazy" decoding="async">
   </section>
-
   <!-- QUE INCLUYE -->
   <section style="padding:0;background:var(--rosa-suave);">
     <img src="images03-categorias.webp" width="1024" height="1536" alt="Qué vas a poder tejer, elegí por dónde vas a empezar sin perderte: bolsos, ropa, amigurumis, llaveros, ropa para bebé, mantas y bufandas" style="width:100%;height:auto;display:block;" loading="lazy" decoding="async">
   </section>
-
   <!-- BENEFICIOS -->
   <section style="padding:0;background:var(--rosa-suave);">
     <img src="images08-beneficios.webp" width="1024" height="1536" alt="Qué vas a lograr: vas a sentir el orgullo de terminar algo hecho con tus propias manos de principio a fin, vas a tejer paso a paso aunque hoy no sepas sostener el ganchillo, no vas a adivinar qué quiso decir una instrucción a medio traducir, vas a dejar de perder tardes enteras buscando en internet, vas a ver exactamente qué hacer en cada paso con cursos en video" style="width:100%;height:auto;display:block;" loading="lazy" decoding="async">
   </section>
-
   <!-- TEASER DE PRECIO (justo después de beneficios, hace de puente hacia la oferta) -->
   <section style="padding:0;">
     <img src="images10-teaser-precio.webp" width="1024" height="1536" alt="Llevate hoy el Sistema Sin Vueltas Perdidas + 20 recursos gratis — Mega Pack de Crochet +10.000 patrones, incluye 2 cursos en video: Bolsos de Trapillo paso a paso y Crochet para Principiantes, +20 bonos gratis, 89% de descuento, $147 USD a $15 USD, precio de lanzamiento" style="width:100%;height:auto;display:block;" loading="lazy" decoding="async">
   </section>
-
   <!-- OFERTA -->
   <section id="oferta" style="padding:30px 0;">
     <div class="oferta">
@@ -250,10 +249,8 @@
       <span style="position:absolute;top:14px;right:14px;font-size:16px;opacity:.5;">✨</span>
       <span style="position:absolute;bottom:10px;left:14px;font-size:18px;opacity:.5;">💗</span>
       <span style="position:absolute;bottom:14px;right:12px;font-size:16px;opacity:.5;">⭐</span>
-
       <!-- Titular de la oferta: imagen a todo el ancho de la tarjeta (rompe el padding con márgenes negativos) -->
       <img src="images13-oferta-titulo.webp" width="1536" height="1024" alt="Sistema Sin Vueltas Perdidas™ — +10.000 Patrones, Cursos en Video, 20 Recursos" loading="lazy" decoding="async" style="width:calc(100% + 40px);max-width:calc(100% + 40px);height:auto;display:block;margin:-26px -20px 12px;border-radius:24px 24px 0 0;">
-
       <!-- Reserva + urgencia, mismo mecanismo que el original (día + timer + cesión de cupo) -->
       <div class="reserva-card">
         <div class="reserva-pill"><span class="dot"></span> tu lugar está reservado</div>
@@ -265,39 +262,32 @@
         </div>
         <p class="reserva-texto">Tu lugar estará reservado durante <b>15 minutos</b>. En caso de no acceder, el descuento se cede a la siguiente persona en espera.</p>
       </div>
-
       <!-- Contador de personas viendo la oferta (mismo mecanismo que el original: número que fluctúa,
            efecto de urgencia, no una métrica de analytics real conectada). -->
       <p class="viendo-nota">
         <span style="width:7px;height:7px;border-radius:50%;background:var(--verde);display:inline-block;margin-right:5px;"></span>
         <b id="contador-viendo">18</b> personas están viendo esta oferta ahora
       </p>
-
-      <a href="https://pay.hotmart.com/L107141993A?off=fggz480m&checkoutMode=10" id="cta-oferta" class="cta-btn" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
+      <a href="https://pay.hotmart.com/L107141993A?off=fggz480m&checkoutMode=10" id="cta-oferta" class="cta-btn cta-hotmart" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
       <p class="cta-sub">Pago único · sin suscripción · acceso inmediato por correo</p>
-
       <!-- GARANTIA — imagen, dentro de la misma tarjeta de oferta, sin caja separada -->
       <div style="border-top:2px dashed rgba(107,63,160,.25);margin-top:22px;padding-top:18px;">
         <img src="images14-garantia.webp" width="1536" height="1024" alt="Garantía de 60 días — Riesgo cero. Si no era para vos, te devolvemos tu plata. Sin vueltas." loading="lazy" decoding="async" style="width:100%;max-width:100%;height:auto;display:block;">
       </div>
-
     </div>
   </section>
-
   <!-- BONOS -->
   <section style="padding:0 0 22px;background:var(--rosa-suave);">
     <img src="images05-bonos.webp" width="855" height="1840" alt="20 respuestas a las excusas que ya usaste para no empezar — bonos incluidos gratis, sin letra chica: para que domines la técnica, para que nunca te quedes sin ideas, para todo lo que no es tejer pero también importa" style="width:100%;height:auto;display:block;" loading="lazy" decoding="async">
     <div style="padding:0 22px;">
-      <a href="https://pay.hotmart.com/L107141993A?off=fggz480m&checkoutMode=10" class="cta-btn" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
+      <a href="https://pay.hotmart.com/L107141993A?off=fggz480m&checkoutMode=10" class="cta-btn cta-hotmart" target="_blank" rel="noopener">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
     </div>
   </section>
-
   <!-- RECAP DE VALOR (sin CTA acá, ya está el de arriba) -->
   <section style="text-align:center;padding-bottom:6px;">
     <img src="images06-stack.webp" width="1000" height="1573" alt="Mega Pack: lo que tenés después de hoy — Curso de Bolsos de Trapillo (el más pedido) y Curso de Crochet para Principiantes, más 20 recursos más para que nunca te falte una excusa resuelta" style="width:100%;height:auto;border-radius:16px;display:block;" loading="lazy" decoding="async">
     <p class="cta-sub" style="margin:10px 0 0;">+ 20 recursos más — para que nunca te falte una excusa resuelta.</p>
   </section>
-
   <!-- TESTIMONIOS / RESEÑAS — un solo carrusel, no dos secciones repitiendo lo mismo -->
   <section style="padding-top:10px;padding-bottom:10px;">
     <div class="tit-box">
@@ -312,7 +302,6 @@
       <img src="images12-resenas-5.webp" width="898" height="1154" alt="Reseñas verificadas del Sistema Sin Vueltas Perdidas, página 5" loading="lazy" decoding="async">
     </div>
   </section>
-
   <!-- FAQ -->
   <!-- Orden calcado del original: logística concreta primero (qué/para quién/cómo), seguridad
        financiera en el medio (pago único/de por vida/actualizaciones), y cierra con la pregunta
@@ -324,7 +313,6 @@
       <h2 class="tit">Preguntas frecuentes</h2>
       <p class="subtit">Resolvemos tus dudas antes de comprar — no después.</p>
     </div>
-
     <div style="margin-top:10px;">
       <details class="faq-acc" open>
         <summary>¿Qué incluye exactamente el Sistema Sin Vueltas Perdidas?</summary>
@@ -356,7 +344,6 @@
       </details>
     </div>
   </section>
-
   <!-- CTA FINAL -->
   <section style="text-align:center;">
     <div class="tit-box" style="position:relative;padding:26px 20px;border:1.5px solid var(--rosa);">
@@ -367,12 +354,10 @@
       <p class="subtit" style="max-width:420px;margin-left:auto;margin-right:auto;">
         o dejar de perder vueltas — las del ganchillo y las de las quince pestañas — y tener todo en un solo lugar, explicado para que realmente termines lo que empezás.
       </p>
-      <a href="https://pay.hotmart.com/L107141993A?off=fggz480m&checkoutMode=10" class="cta-btn" target="_blank" rel="noopener" style="margin-top:20px;">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
+      <a href="https://pay.hotmart.com/L107141993A?off=fggz480m&checkoutMode=10" class="cta-btn cta-hotmart" target="_blank" rel="noopener" style="margin-top:20px;">🎁 Quiero el Sistema Sin Vueltas Perdidas</a>
     </div>
   </section>
-
 </div>
-
 <script>
   // Día real en español para la cápsula de la barra superior (opción control).
   var dias = ['DOMINGO','LUNES','MARTES','MIÉRCOLES','JUEVES','VIERNES','SÁBADO'];
@@ -380,7 +365,6 @@
   if(elDia){ elDia.textContent = dias[new Date().getDay()]; }
   var elDia2 = document.getElementById('dia-hoy-2');
   if(elDia2){ elDia2.textContent = dias[new Date().getDay()]; }
-
   // Barra superior: la segunda línea rota cada 5 segundos entre distintos disparadores
   // (no repite siempre lo mismo, así refuerza varios argumentos sin que se sienta como un solo cartel fijo).
   var mensajesTopbar = [
@@ -410,7 +394,6 @@
       }, 300);
     }, 5000);
   }
-
   // Timer de reserva: cuenta regresiva de 15 minutos desde que se carga la página,
   // mismo mecanismo que el original ("tu lugar reservado durante 15 minutos").
   // Ajustar a una lógica de sesión/servidor real antes de publicar si se quiere que sea 100% honesto
@@ -429,7 +412,6 @@
   }
   actualizar();
   setInterval(actualizar, 1000);
-
   // Contador de "personas viendo" — fluctúa dentro de un rango, como el mecanismo del original.
   // Es un efecto de urgencia, no una conexión real a analytics.
   var elContador = document.getElementById('contador-viendo');
@@ -439,7 +421,6 @@
       elContador.textContent = n;
     }, 4000);
   }
-
   // Carrusel de reseñas: avanza solo cada 4 segundos, vuelve al principio al llegar al final.
   // Se pausa mientras la persona lo toca/desliza, y retoma un ratito después de soltar.
   var carrusel = document.getElementById('reviews-carousel');
@@ -465,8 +446,20 @@
     carrusel.addEventListener('mousedown', pausarYRetomar);
     iniciarAvance();
   }
-
+  // Meta Pixel: InitiateCheckout al hacer clic en cualquier botón que va al checkout de Hotmart.
+  // Marca la intención de compra en el punto donde la persona sale de la landing hacia el pago.
+  if(typeof fbq !== 'undefined'){
+    document.querySelectorAll('.cta-hotmart').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Sistema Sin Vueltas Perdidas - Mega Pack Crochet',
+          content_category: 'Infoproducto',
+          value: 15,
+          currency: 'USD'
+        });
+      });
+    });
+  }
 </script>
-
 </body>
 </html>
